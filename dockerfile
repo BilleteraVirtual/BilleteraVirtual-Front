@@ -20,7 +20,7 @@ RUN npm run build --prod
 FROM nginx:alpine
 
 # Copia los archivos de la construcción desde el contenedor de build al contenedor de Nginx
-COPY --from=build /app/dist/billeteraVirtual /usr/share/nginx/html
+COPY --from=build /app/dist/billetera-virtual /usr/share/nginx/html
 
 # Expone el puerto en el que Nginx servirá la aplicación
 EXPOSE 80
