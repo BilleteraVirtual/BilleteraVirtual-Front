@@ -9,7 +9,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: billeteraVirtual/container
+  IMAGE_NAME: billeteravirtual/container
 
 jobs:
   build-and-push-image:
