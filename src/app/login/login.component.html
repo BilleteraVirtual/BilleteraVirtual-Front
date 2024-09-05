@@ -1,20 +1,4 @@
-<h1>hola</h1>
-<form [formGroup]="applyForm" (ngSubmit)="onSubmit()" >
-    <div>
-      <label for="dni">DNI</label>
-      <input id="dni" name="dni" formControlName= "dni" required>
-    </div>
-  
-    <div>
-      <label for="name">Nombre:</label>
-      <input id="name" name="name" formControlName= "name" required>
-    </div>
-  
-    <div>
-      <label for="lastName">Apellido:</label>
-      <input id="lastName" name="lastName" formControlName= "lastName" required>
-    </div>
-  
+<form > //[formGroup]="applyForm" (ngSubmit)="onSubmit()"
     <div>
       <label for="email">Correo electrónico:</label>
       <input id="email" name="email" type="email" formControlName= "email" required>
@@ -27,4 +11,3 @@
   
     <button type="submit">Iniciar sesión</button>
   </form>
-  

@@ -1,5 +1,5 @@
 export interface Entity {
-    CVU: number;
+    CVU: bigint;
     alias: string;
     balance: number;
     email: string;

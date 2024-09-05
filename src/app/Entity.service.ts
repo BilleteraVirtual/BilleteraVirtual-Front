@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
   export class EntityService {
    
 
-    CVU: number | undefined
+    CVU: string | undefined
     alias: string | undefined;
     balance: number | undefined;
     email: string | undefined;
@@ -26,11 +26,11 @@ import { HttpClient } from '@angular/common/http';
       return this.http.get('http://localhost:3000/entites')
     }
 
-    getOneEntity(CVU: number){  
+    getOneEntity(CVU: string){  
       return this.http.get('http://localhost:3000/entites/' + CVU)
     }
 
-    deleteEntity(entityCVU: number | undefined){
+    deleteEntity(entityCVU: string | undefined){
       return this.http.delete('http://localhost:3000/entities/' + entityCVU)
     }
 
@@ -38,13 +38,13 @@ import { HttpClient } from '@angular/common/http';
       return this.http.post('http://localhost:3000/entities/add', body)
     }
 
-    updateEntity(CVU : number, body:any) {
+    updateEntity(CVU : string, body:any) {
       return this.http.put<void>( 'http://localhost:3000/entites/'+ CVU, body);
     }
 
     
   
-    enviar(CVU: number, alias: string, balance: number, email: string, password: string) {
+    enviar(CVU: string, alias: string, balance: number, email: string, password: string) {
         this.CVU = CVU;
         this.alias = alias;
         this.balance = balance;
