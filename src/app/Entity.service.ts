@@ -38,17 +38,13 @@ import { HttpClient } from '@angular/common/http';
       return this.http.post('http://localhost:3000/entities/add', body)
     }
 
+    login(email: string, password: string){  
+      return this.http.post('http://localhost:3000/entites/login', {email, password});
+    }
+
     updateEntity(CVU : string, body:any) {
       return this.http.put<void>( 'http://localhost:3000/entites/'+ CVU, body);
     }
 
     
-  
-    enviar(CVU: string, alias: string, balance: number, email: string, password: string) {
-        this.CVU = CVU;
-        this.alias = alias;
-        this.balance = balance;
-        this.email = email;
-        this.password = password;
-    }
   }
