@@ -22,7 +22,7 @@ export const routes: Routes = [
         title: 'Sign Up'
     },
     {
-        path: 'landingpage',
+        path: 'landingPage',
         component: LandingPageComponent,
         title: 'Landing Page'
     }
