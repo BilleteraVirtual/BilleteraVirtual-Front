@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NavBarComponent } from './nav-bar/nav-bar.component'; 
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
     RouterOutlet,
     RouterLink,
     HttpClientModule,
+    NavBarComponent
   ],
 })
 export class AppComponent {
