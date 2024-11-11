@@ -1,3 +1,4 @@
+// login.component.ts
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EntityService } from '../Entity.service';
@@ -9,32 +10,42 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css'] // Corregir 'styleUrl' a 'styleUrls'
 })
 export class LoginComponent {
   entityService = inject(EntityService);
   router = inject(Router);
 
   applyForm = new FormGroup({
-    username: new FormControl(''),
+    email: new FormControl(''),
     password: new FormControl('')
   });
 
   public login(formData: any) {
-    this.entityService.login(formData.username, formData.password).subscribe((res: any) => {
-      if (res) {
-        console.log('Login successful');
-      } else {
-        console.log('Login failed');
-      }
-    });
-  }
+    const body = {
+      "email": formData.email,
+      "password": formData.password
+    };
   
+    this.entityService.login(body).subscribe(
+      (res: any) => {
+        if (res) {
+          console.log('Login successful');
+          localStorage.setItem('token', res); // Guarda el token en localStorage
+          this.router.navigate(['/home']); // Redirige al home
+        } else {
+          console.log('Login failed');
+        }
+      },
+      (error) => {
+        console.error('Login error:', error);
+      }
+    );
+  }
 
   public submitApplication() {
     const formData = this.applyForm.value;
     this.login(formData);
-    this.router.navigate(['/home']); //deberia especificar a cual home ir?
   }
 
   public cancelar() {
