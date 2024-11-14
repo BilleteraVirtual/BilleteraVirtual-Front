@@ -2,13 +2,15 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
+import { AuthGuard } from './authGuard.service';
 
 
 export const routes: Routes = [
     {
         path: 'home',
         component: HomeComponent,
-        title: 'Pagina Inicio'
+        title: 'Pagina Inicio',
+        canActivate: [AuthGuard]
     },
     { 
         path: 'login',
@@ -16,7 +18,7 @@ export const routes: Routes = [
         title: 'Log In'
     },   
     { 
-        path: '',
+        path: 'register',
         component: SignupComponent,
         title: 'Sign Up'
     },   
