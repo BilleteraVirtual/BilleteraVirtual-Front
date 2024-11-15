@@ -4,6 +4,7 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
 import { EntityService } from '../Entity.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./login.component.css'] // Corregir 'styleUrl' a 'styleUrls'
 })
 export class LoginComponent {
-  entityService = inject(EntityService);
+  authService = inject(AuthService);
   router = inject(Router);
 
   applyForm = new FormGroup({
@@ -27,7 +28,7 @@ export class LoginComponent {
       "password": formData.password
     };
   
-    this.entityService.login(body).subscribe(
+    this.authService.login(body).subscribe(
       (res: any) => {
         if (res) {
           console.log('Login successful');

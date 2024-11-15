@@ -32,11 +32,6 @@ import { tap } from 'rxjs';
       return this.http.post('http://localhost:3000/entities/add', body)
     }
 
-    login(body: any): Observable<any> {
-      // Realiza la solicitud POST y retorna el Observable
-      return this.http.post('http://localhost:3000/entities/login', body);
-    }
-
     updateEntity(CVU : string, body:any) {
       return this.http.put<void>( 'http://localhost:3000/entites/'+ CVU, body);
     }
