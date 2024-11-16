@@ -1,13 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { EntityService } from '../Entity.service';
 
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule, RouterOutlet, CommonModule, RouterLink],
+  imports: [ReactiveFormsModule, FormsModule, CommonModule],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
 })
@@ -17,6 +18,7 @@ export class SignupComponent implements OnInit {
   isCompany = false; 
 
   router = inject(Router);
+  entityService = inject(EntityService);
 
   constructor(private fb: FormBuilder) {}
 
@@ -72,33 +74,49 @@ export class SignupComponent implements OnInit {
   
 
   submit(): void {
+    // Obtener los valores del formulario
     const formValue = this.signupForm.value;
-
-    const dataToSend: any = {
-      entity: {
-        alias: formValue.entity.alias,
-        email: formValue.entity.email,
-        password: formValue.entity.password,
-      },
+  
+    // Crear el objeto base con los campos comunes (Entity)
+    let dataToSend: any = {
+      alias: formValue.entity.alias,
+      email: formValue.entity.email,
+      password: formValue.entity.password,
     };
   
+    // Añadir los campos específicos según el tipo de usuario
     if (this.isCompany) {
-      dataToSend.company = {
+      dataToSend = {
+        ...dataToSend,
         businessName: formValue.company.businessName,
-        category: formValue.company.category,
+        idCategory: formValue.company.category,
       };
     } else {
-      dataToSend.user = {
+      dataToSend = {
+        ...dataToSend,
         DNI: formValue.user.DNI,
         firstName: formValue.user.firstName,
         lastName: formValue.user.lastName,
       };
     }
   
-    console.log('Datos a enviar:', dataToSend);
-    
-    // aca va la request a la api
-
-    this.router.navigate(['/login']);
+    // Ahora puedes enviar `dataToSend` al backend
+    this.entityService.addEntity(dataToSend).subscribe(
+      (res: any) => {
+        console.log('Response:', res);
+        if (res && res.success) {
+          console.log('Entity added successfully');
+          // Redirect to the login page
+          this.router.navigate(['/login']);
+        } else {
+          console.log('Entity not added');
+          // Handle failure case here if needed
+        }
+      },
+      (error) => {
+        console.error('Error adding entity:', error);
+        // Handle error case here
+      }
+    );
   }
 }
