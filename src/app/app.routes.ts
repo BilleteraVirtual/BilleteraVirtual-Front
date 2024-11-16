@@ -18,7 +18,7 @@ export const routes: Routes = [
         title: 'Log In'
     },   
     { 
-        path: 'register',
+        path: 'signup',
         component: SignupComponent,
         title: 'Sign Up'
     },   
