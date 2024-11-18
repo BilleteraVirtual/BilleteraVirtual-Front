@@ -33,7 +33,11 @@ export class LoginComponent {
         if (res) {
           console.log('Login successful');
           localStorage.setItem('token', res); // Guarda el token en localStorage
-          this.router.navigate(['/home']); // Redirige al home
+    
+          // Agrega un retraso de 500ms antes de redirigir a /home
+          setTimeout(() => {
+            this.router.navigate(['/home']); // Redirige al home
+          }, 500); // Puedes ajustar el tiempo según sea necesario
         } else {
           console.log('Login failed');
         }

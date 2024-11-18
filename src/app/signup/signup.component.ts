@@ -3,6 +3,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { EntityService } from '../Entity.service';
+import { CategoryService } from '../Category.service';
 
 
 @Component({
@@ -15,10 +16,12 @@ import { EntityService } from '../Entity.service';
 
 export class SignupComponent implements OnInit {
   signupForm!: FormGroup;
-  isCompany = false; 
+  isCompany = false;
+  categories: any = [];  // Variable para guardar las categorías
 
   router = inject(Router);
   entityService = inject(EntityService);
+  categoriesSerivce = inject(CategoryService);
 
   constructor(private fb: FormBuilder) {}
 
@@ -29,7 +32,7 @@ export class SignupComponent implements OnInit {
         email: ['', [Validators.required, Validators.email]],
         password: ['', Validators.required],
       }),
-      userType: ['', Validators.required], // Tipo de usuario (user o company)
+      userType: ['', Validators.required], 
       user: this.fb.group({
         DNI: ['', Validators.required],
         firstName: ['', Validators.required],
@@ -37,18 +40,27 @@ export class SignupComponent implements OnInit {
       }),
       company: this.fb.group({
         businessName: ['', Validators.required],
-        category: ['', Validators.required],
+        category: ['', Validators.required], // Campo para seleccionar categoría
       }),
     });
+
+    // Obtener categorías del backend
+    this.categoriesSerivce.getCategories().subscribe(
+      (response) => {
+        this.categories = response;  // Almacenar las categorías en la variable
+      },
+      (error) => {
+        console.error('Error fetching categories', error);
+      }
+    );
   }
 
   onUserTypeChange(event: Event): void {
-    const selectElement = event.target as HTMLSelectElement; // Obtener el target del evento
-    const userType = selectElement.value; // Obtener el valor seleccionado
+    const selectElement = event.target as HTMLSelectElement; 
+    const userType = selectElement.value;
   
     this.isCompany = userType === 'company';
   
-    // Limpiar validadores previos
     if (this.isCompany) {
       this.signupForm.get('user.DNI')?.clearValidators();
       this.signupForm.get('user.firstName')?.clearValidators();
@@ -63,33 +75,27 @@ export class SignupComponent implements OnInit {
       this.signupForm.get('user.lastName')?.setValidators([Validators.required]);
     }
   
-    // Actualizar el estado de validación
     this.signupForm.get('user.DNI')?.updateValueAndValidity();
     this.signupForm.get('user.firstName')?.updateValueAndValidity();
     this.signupForm.get('user.lastName')?.updateValueAndValidity();
     this.signupForm.get('company.businessName')?.updateValueAndValidity();
     this.signupForm.get('company.category')?.updateValueAndValidity();
   }
-  
-  
 
   submit(): void {
-    // Obtener los valores del formulario
     const formValue = this.signupForm.value;
   
-    // Crear el objeto base con los campos comunes (Entity)
     let dataToSend: any = {
       alias: formValue.entity.alias,
       email: formValue.entity.email,
       password: formValue.entity.password,
     };
   
-    // Añadir los campos específicos según el tipo de usuario
     if (this.isCompany) {
       dataToSend = {
         ...dataToSend,
         businessName: formValue.company.businessName,
-        idCategory: formValue.company.category,
+        idCategory: formValue.company.category,  // Enviar idCategory en lugar de category
       };
     } else {
       dataToSend = {
@@ -100,22 +106,18 @@ export class SignupComponent implements OnInit {
       };
     }
   
-    // Ahora puedes enviar `dataToSend` al backend
     this.entityService.addEntity(dataToSend).subscribe(
       (res: any) => {
         console.log('Response:', res);
         if (res && res.success) {
           console.log('Entity added successfully');
-          // Redirect to the login page
           this.router.navigate(['/login']);
         } else {
           console.log('Entity not added');
-          // Handle failure case here if needed
         }
       },
       (error) => {
         console.error('Error adding entity:', error);
-        // Handle error case here
       }
     );
   }

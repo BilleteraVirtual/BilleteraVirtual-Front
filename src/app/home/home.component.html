@@ -1,1 +1,15 @@
-<p>asdasdasdasdas</p>
+<div *ngIf="entityDetails; else loading">
+    <div *ngIf="entityDetails.firstName && entityDetails.lastName">
+      <p>Nombre: {{ entityDetails.firstName }} {{ entityDetails.lastName }}</p>
+    </div>
+  
+    <div *ngIf="entityDetails.businessName && entityDetails.category">
+      <p>Empresa: {{ entityDetails.businessName }}</p>
+      <p>Categoría: {{ entityDetails.category }}</p>
+    </div>
+  </div>
+  
+  <ng-template #loading>
+    <p>Cargando detalles...</p>
+  </ng-template>
+  
