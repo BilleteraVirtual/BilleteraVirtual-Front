@@ -28,27 +28,6 @@
     <option value="company">Empresa</option>
   </select>
 
-  <!-- Campos específicos para User -->
-  <div formGroupName="user" *ngIf="!isCompany">
-    <label>DNI</label>
-    <input formControlName="DNI" type="number" />
-    <div *ngIf="signupForm.get('user.DNI')?.invalid && signupForm.get('user.DNI')?.touched">
-      <small>El DNI es obligatorio.</small>
-    </div>
-
-    <label>Nombre/s</label>
-    <input formControlName="firstName" type="text" />
-    <div *ngIf="signupForm.get('user.firstName')?.invalid && signupForm.get('user.firstName')?.touched">
-      <small>El nombre es obligatorio.</small>
-    </div>
-
-    <label>Apellido/s</label>
-    <input formControlName="lastName" type="text" />
-    <div *ngIf="signupForm.get('user.lastName')?.invalid && signupForm.get('user.lastName')?.touched">
-      <small>El apellido es obligatorio.</small>
-    </div>
-  </div>
-
   <!-- Campos específicos para Company -->
   <div formGroupName="company" *ngIf="isCompany">
     <label>Nombre de la empresa</label>
@@ -57,10 +36,34 @@
       <small>El nombre de la empresa es obligatorio.</small>
     </div>
 
-    <label>Categoria</label>
-    <input formControlName="category" type="text" />
+    <label>Categoría</label>
+    <select formControlName="category">
+      <option value="" disabled selected>Selecciona una categoría</option>
+      <option *ngFor="let category of categories" [value]="category.idCategory">{{ category.type }}</option>
+    </select>
     <div *ngIf="signupForm.get('company.category')?.invalid && signupForm.get('company.category')?.touched">
       <small>La categoría es obligatoria.</small>
+    </div>
+  </div>
+
+  <!-- Campos específicos para User -->
+  <div formGroupName="user" *ngIf="!isCompany">
+    <label>DNI</label>
+    <input formControlName="DNI" type="text" />
+    <div *ngIf="signupForm.get('user.DNI')?.invalid && signupForm.get('user.DNI')?.touched">
+      <small>El DNI es obligatorio.</small>
+    </div>
+
+    <label>Nombre</label>
+    <input formControlName="firstName" type="text" />
+    <div *ngIf="signupForm.get('user.firstName')?.invalid && signupForm.get('user.firstName')?.touched">
+      <small>El nombre es obligatorio.</small>
+    </div>
+
+    <label>Apellido</label>
+    <input formControlName="lastName" type="text" />
+    <div *ngIf="signupForm.get('user.lastName')?.invalid && signupForm.get('user.lastName')?.touched">
+      <small>El apellido es obligatorio.</small>
     </div>
   </div>
 
