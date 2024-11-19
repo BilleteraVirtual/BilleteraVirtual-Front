@@ -57,6 +57,19 @@ export class AuthService {
     });
   }
 
+  getDecodedToken(): Observable<any> {
+    const token = localStorage.getItem('token');
+    console.log('Token:', token);  // Asegúrate de que el token esté almacenado correctamente
+
+    if (token) {
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+      return this.http.get<any>('http://localhost:3000/auth/decode', { headers }); // Llama al endpoint para decodificar
+    } else {
+      console.error('No token found');
+      return new Observable<any>();
+    }
+  }
+
 
   logout(){
     localStorage.removeItem('token');

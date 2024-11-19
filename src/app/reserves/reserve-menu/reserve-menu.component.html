@@ -1,0 +1,15 @@
+<div class="reserve-menu">
+  <h1>Reservas</h1>
+
+  <!-- Botón para agregar una nueva reserva -->
+  <button (click)="navigateToAddReserve()">Agregar Reserva</button>
+
+  <!-- Lista de reservas -->
+  <div class="reserve-list">
+    <app-reserve
+      *ngFor="let reserve of reserves"
+      [reserve]="reserve"
+      (reserveClicked)="navigateToReserveDetails($event)"
+    ></app-reserve>
+  </div>
+</div>

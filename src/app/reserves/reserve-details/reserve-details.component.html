@@ -1,0 +1,18 @@
+<div *ngIf="reserve">
+    <h2>Detalles de la Reserva</h2>
+    
+    <div class="reserve-detail">
+      <p><strong>Razón:</strong> {{ reserve.reason || 'Sin descripción' }}</p>
+      <p><strong>Monto:</strong> {{ reserve.amount }}</p>
+  
+      <!-- Botones para editar y eliminar -->
+      <button (click)="navigateToEditReserve()">Editar</button>
+      <button (click)="deleteReserve()">Eliminar</button>
+    </div>
+  </div>
+  
+  <!-- Mostrar un mensaje de carga mientras se obtienen los detalles -->
+  <div *ngIf="!reserve">
+    <p>Cargando detalles de la reserva...</p>
+  </div>
+  
