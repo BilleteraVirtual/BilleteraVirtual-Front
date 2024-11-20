@@ -4,6 +4,8 @@ import { ReserveService } from '../../Reserve.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../auth.service';
+import { Entity } from '../../Entity';
+import { EntityService } from '../../Entity.service';
 
 @Component({
   selector: 'app-reserve-add',
@@ -15,12 +17,14 @@ import { AuthService } from '../../auth.service';
 export class ReserveAddComponent implements OnInit {
   reserveForm: FormGroup;
   entityCVU: string = '';
+  entity: Entity | null = null;
 
   constructor(
     private fb: FormBuilder,
     private reserveService: ReserveService,
     private authService: AuthService, // Inyecta el servicio
-    private router: Router
+    private router: Router,
+    private entityService: EntityService // Inyecta el servicio
   ) {
     // Crear formulario reactivo con validadores
     this.reserveForm = this.fb.group({
@@ -40,11 +44,21 @@ export class ReserveAddComponent implements OnInit {
         if (decodedToken && decodedToken.result?.cvu) {
           const entityCVU = decodedToken.result.cvu; // Extrae el CVU
           this.entityCVU = entityCVU; // Poblamos el campo CVU en el formulario
+          this.loadEntity(); // Cargar la entidad
         } else {
           console.error('Error: No se pudo obtener el CVU del token.');
         }
       },
       error: (err) => console.error('Error al decodificar el token', err)
+    });
+  }
+
+  loadEntity(): void {
+    this.entityService.getOneEntity(this.entityCVU).subscribe({
+      next: (entity) => {
+        this.entity = entity as Entity; // Cast 'entity' to 'Entity' type
+      },
+      error: (err) => console.error('Error al obtener la entidad', err)
     });
   }
 

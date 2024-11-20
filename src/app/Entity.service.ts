@@ -17,11 +17,16 @@ import { tap } from 'rxjs';
     protected entityList: Entity[] =  []
 
     getAllEntities(){
-      return this.http.get('http://localhost:3000/entites')
+      return this.http.get('http://localhost:3000/entities')
     }
 
-    getOneEntity(CVU: string){  
-      return this.http.get('http://localhost:3000/entites/' + CVU)
+    getOneEntity(CVU: string){
+      const token = localStorage.getItem('token'); // Obtiene el token del localStorage
+    
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}` // Agrega el token en el encabezado Authorization
+      });  
+      return this.http.get('http://localhost:3000/entities/' + CVU, { headers });
     }
 
     deleteEntity(entityCVU: string | undefined){

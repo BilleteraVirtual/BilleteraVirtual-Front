@@ -1,18 +1,28 @@
 <div *ngIf="reserve">
-    <h2>Detalles de la Reserva</h2>
-    
-    <div class="reserve-detail">
-      <p><strong>Razón:</strong> {{ reserve.reason || 'Sin descripción' }}</p>
-      <p><strong>Monto:</strong> {{ reserve.amount }}</p>
+  <h2>Detalles de la Reserva</h2>
   
-      <!-- Botones para editar y eliminar -->
-      <button (click)="navigateToEditReserve()">Editar</button>
-      <button (click)="deleteReserve()">Eliminar</button>
-    </div>
+  <div class="reserve-detail">
+    <p><strong>Razón:</strong> {{ reserve.reason || 'Sin descripción' }}</p>
+    <p><strong>Monto:</strong> {{ reserve.amount }}</p>
+
+    <!-- Botones para editar, eliminar, extraer e ingresar -->
+    <button (click)="deleteReserve()">Eliminar</button>
+    <button (click)="openPopup('extract')">Extraer dinero</button>
+    <button (click)="openPopup('deposit')">Ingresar dinero</button>
   </div>
-  
-  <!-- Mostrar un mensaje de carga mientras se obtienen los detalles -->
-  <div *ngIf="!reserve">
-    <p>Cargando detalles de la reserva...</p>
+</div>
+
+<div *ngIf="!reserve">
+  <p>Cargando detalles de la reserva...</p>
+</div>
+
+<!-- Popup para extraer o depositar -->
+<div *ngIf="showPopup" class="popup">
+  <div class="popup-content">
+    <h3>{{ popupAction === 'extract' ? 'Extraer Dinero' : 'Ingresar Dinero' }}</h3>
+    <label for="amount">Monto:</label>
+    <input type="number" [(ngModel)]="popupAmount" id="amount" />
+    <button (click)="confirmPopupAction()">Confirmar</button>
+    <button (click)="closePopup()">Cancelar</button>
   </div>
-  
+</div>

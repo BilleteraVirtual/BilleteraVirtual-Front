@@ -16,6 +16,9 @@
         <div *ngIf="reserveForm.controls['amount'].invalid && reserveForm.controls['amount'].touched" class="error">
           El monto es obligatorio y debe ser mayor que 0.
         </div>
+        <div>
+          El dinero disponible es: {{ entity?.balance }}
+        </div>
       </div>
 
   

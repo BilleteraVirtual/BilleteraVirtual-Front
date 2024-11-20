@@ -34,6 +34,18 @@ export class ReserveService {
     return this.http.put<any>(`${this.apiUrl}/reserves/update${reserveId}`, { amount, reason }, { headers });
   }
 
+  extractMoney(reserveId: number, amount: number): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = { Authorization: `Bearer ${token}` };
+    return this.http.put<any>(`${this.apiUrl}/reserves/extract`, { reserveId, amount }, { headers });
+  }
+
+  depositMoney(reserveId: number, amount: number): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = { Authorization: `Bearer ${token}` };
+    return this.http.put<any>(`${this.apiUrl}/reserves/deposit`, { reserveId, amount }, { headers });
+  }
+
   deleteReserve(reserveId: number): Observable<void> {
     const token = localStorage.getItem('token');
     const headers = { Authorization: `Bearer ${token}` };
