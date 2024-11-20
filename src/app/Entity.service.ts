@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Entity } from './Entity';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs/internal/Observable';
+import { tap } from 'rxjs';
 
 
 
@@ -10,24 +12,21 @@ import { HttpClient } from '@angular/common/http';
 
   export class EntityService {
    
-
-    CVU: string | undefined
-    alias: string | undefined;
-    balance: number | undefined;
-    email: string | undefined;
-    password: string | undefined;
-    
-
     constructor(private http: HttpClient){}
 
     protected entityList: Entity[] =  []
 
     getAllEntities(){
-      return this.http.get('http://localhost:3000/entites')
+      return this.http.get('http://localhost:3000/entities')
     }
 
-    getOneEntity(CVU: string){  
-      return this.http.get('http://localhost:3000/entites/' + CVU)
+    getOneEntity(CVU: string){
+      const token = localStorage.getItem('token'); // Obtiene el token del localStorage
+    
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}` // Agrega el token en el encabezado Authorization
+      });  
+      return this.http.get('http://localhost:3000/entities/' + CVU, { headers });
     }
 
     deleteEntity(entityCVU: string | undefined){
@@ -42,13 +41,13 @@ import { HttpClient } from '@angular/common/http';
       return this.http.put<void>( 'http://localhost:3000/entites/'+ CVU, body);
     }
 
+    getEntityDetails() {
+      const token = localStorage.getItem('token'); // Obtiene el token del localStorage
     
-  
-    enviar(CVU: string, alias: string, balance: number, email: string, password: string) {
-        this.CVU = CVU;
-        this.alias = alias;
-        this.balance = balance;
-        this.email = email;
-        this.password = password;
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}` // Agrega el token en el encabezado Authorization
+      });
+    
+      return this.http.get('http://localhost:3000/entities/details', { headers });
     }
   }

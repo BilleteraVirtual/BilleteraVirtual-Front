@@ -1,13 +1,30 @@
-<form > //[formGroup]="applyForm" (ngSubmit)="onSubmit()"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div>
+    <h1>NOMBRE BILLETERA</h1>
+    <h2>Iniciar sesión</h2>
+  </div>
+  <form [formGroup]="applyForm" (submit)="submitApplication()">
     <div>
-      <label for="email">Correo electrónico:</label>
+      <label for="email">Correo electrónico</label>
       <input id="email" name="email" type="email" formControlName= "email" required>
     </div>
-  
     <div>
-      <label for="password">Contraseña:</label>
+      <label for="password">Contraseña</label>
       <input id="password" name="password" type="password" formControlName= "password"  required>
     </div>
   
-    <button type="submit">Iniciar sesión</button>
-  </form>
+    <button type="submit" click="submitApplication()">Ingresar</button>
+    <button id="cancelar" click="cancelar()">Cancelar</button>
+  </form> <!--rama nueva-->
+</body>
+</html>
+
+

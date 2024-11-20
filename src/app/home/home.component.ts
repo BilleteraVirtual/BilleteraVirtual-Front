@@ -1,15 +1,38 @@
+import { Component, inject, OnInit } from '@angular/core';
+import { EntityService } from '../Entity.service';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
-
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrls: ['./home.component.css'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  entityDetails: any;
+  router= inject(Router);
 
+  constructor(private entityService: EntityService) {}
+
+  ngOnInit(): void {
+    this.loadEntityDetails();  // Llamar al método cuando se inicie el componente
+  }
+
+  loadEntityDetails(): void {
+    this.entityService.getEntityDetails().subscribe(
+      (response) => {
+        this.entityDetails = response;
+        console.log('Entity details:', this.entityDetails);  // Verifica que los datos estén llegando correctamente
+      },
+      (error) => {
+        console.error('Error loading entity details:', error);
+      }
+    );
+  }
+
+  goToReserves(): void {
+    this.router.navigate(['/reserves']);
+  }
 }

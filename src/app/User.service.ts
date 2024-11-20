@@ -40,13 +40,4 @@ import { HttpClient } from '@angular/common/http';
     updateUser(DNI : number, body:any) {
       return this.http.put<void>( 'http://localhost:3000/users/'+ DNI, body);
     }
-
-    
-  
-    enviar(DNI: number, firstName: string, lastName: string, entityCVU: string) {
-        this.DNI = DNI;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.entityCVU = entityCVU;
-    }
   }

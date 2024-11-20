@@ -1,0 +1,28 @@
+<div class="reserve-form-container">
+    <h2>Agregar Nueva Reserva</h2>
+  
+    <form [formGroup]="reserveForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="reason">Razón</label>
+        <input id="reason" formControlName="reason" type="text" placeholder="Descripción de la reserva" />
+        <div *ngIf="reserveForm.controls['reason'].invalid && reserveForm.controls['reason'].touched" class="error">
+          La razón es obligatoria.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="amount">Monto</label>
+        <input id="amount" formControlName="amount" type="number" placeholder="Monto de la reserva" />
+        <div *ngIf="reserveForm.controls['amount'].invalid && reserveForm.controls['amount'].touched" class="error">
+          El monto es obligatorio y debe ser mayor que 0.
+        </div>
+        <div>
+          El dinero disponible es: {{ entity?.balance }}
+        </div>
+      </div>
+
+  
+      <button type="submit" [disabled]="reserveForm.invalid">Agregar Reserva</button>
+    </form>
+  </div>
+  
