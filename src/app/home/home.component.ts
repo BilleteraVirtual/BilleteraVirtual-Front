@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { EntityService } from '../Entity.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 })
 export class HomeComponent implements OnInit {
   entityDetails: any;
+  router= inject(Router);
 
   constructor(private entityService: EntityService) {}
 
@@ -29,5 +30,9 @@ export class HomeComponent implements OnInit {
         console.error('Error loading entity details:', error);
       }
     );
+  }
+
+  goToReserves(): void {
+    this.router.navigate(['/reserves']);
   }
 }
