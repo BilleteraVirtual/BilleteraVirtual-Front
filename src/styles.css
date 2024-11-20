@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    font-family: "Montserrat", serif;
+    
+}
+
+body{
+    background-color: #f1c6e2;
+}
