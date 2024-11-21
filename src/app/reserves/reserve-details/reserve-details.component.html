@@ -16,13 +16,26 @@
   <p>Cargando detalles de la reserva...</p>
 </div>
 
-<!-- Popup para extraer o depositar -->
-<div *ngIf="showPopup" class="popup">
+<!-- Pop-up de Confirmación de Eliminación -->
+<div *ngIf="showPopup && popupAction === 'delete'" class="popup-overlay">
+  <div class="popup-content">
+    <h3>¿Estás seguro de que deseas eliminar esta reserva?</h3>
+    <div class="popup-buttons">
+      <button class="btn-confirm" (click)="confirmPopupAction()">Confirmar</button>
+      <button class="btn-cancel" (click)="closePopup()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Pop-up para extraer o depositar -->
+<div *ngIf="showPopup && popupAction !== 'delete'" class="popup-overlay">
   <div class="popup-content">
     <h3>{{ popupAction === 'extract' ? 'Extraer Dinero' : 'Ingresar Dinero' }}</h3>
     <label for="amount">Monto:</label>
     <input type="number" [(ngModel)]="popupAmount" id="amount" />
-    <button (click)="confirmPopupAction()">Confirmar</button>
-    <button (click)="closePopup()">Cancelar</button>
+    <div class="popup-buttons">
+      <button class="btn-confirm" (click)="confirmPopupAction()">Confirmar</button>
+      <button class="btn-cancel" (click)="closePopup()">Cancelar</button>
+    </div>
   </div>
-</div>
+</div> 

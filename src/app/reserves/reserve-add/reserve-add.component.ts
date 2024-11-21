@@ -22,14 +22,14 @@ export class ReserveAddComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private reserveService: ReserveService,
-    private authService: AuthService, // Inyecta el servicio
+    private authService: AuthService,
     private router: Router,
-    private entityService: EntityService // Inyecta el servicio
+    private entityService: EntityService
   ) {
     // Crear formulario reactivo con validadores
     this.reserveForm = this.fb.group({
       reason: ['', Validators.required],
-      amount: [null, [Validators.required, Validators.min(1)]],
+      amount: [null, [Validators.required, Validators.min(1), this.amountValidator.bind(this)]],
     });
   }
 
@@ -60,6 +60,15 @@ export class ReserveAddComponent implements OnInit {
       },
       error: (err) => console.error('Error al obtener la entidad', err)
     });
+  }
+
+  // Método para la validación personalizada del monto
+  amountValidator(control: any) {
+    const amount = control.value;
+    if (amount > (this.entity?.balance || 0)) {
+      return { amountExceedsBalance: true };  // Esto activará el error
+    }
+    return null;  // Sin errores
   }
 
   // Método para guardar la nueva reserva

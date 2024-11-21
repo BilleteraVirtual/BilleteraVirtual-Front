@@ -1,4 +1,12 @@
-<div class="reserve-item" (click)="onReserveClick()">
-  <h3>{{ reserve.reason || 'Sin descripción' }}</h3>
-  <p>Monto: {{ reserve.amount }}</p>
+<div id="divExterno">
+  <h3> {{ reserve.reason}}</h3>
+  <div class="reserve-item">
+    <h5>Dinero reservado</h5>
+    <p>$ {{ reserve.amount }}</p>
+
+    <!-- Botón con el ícono de ojo al borde derecho -->
+    <button class="view-button" (click)="onReserveClick()">
+      <i class="fas fa-eye"></i> <!-- Ícono de ojo -->
+    </button>
+  </div>
 </div>
