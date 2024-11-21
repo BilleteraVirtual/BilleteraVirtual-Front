@@ -1,0 +1,18 @@
+<div class="transactions-container">
+    <button (click)="navigateToAddTransaction()">Agregar Transacción</button>
+  
+    <div *ngFor="let transaction of transactions">
+      <!-- Aquí pasamos el objeto 'transaction' y el CVU actual al componente hijo -->
+      <app-transaction 
+        [transaction]="transaction" 
+        [currentUserCVU]="entityCVU" 
+        (transactionSelected)="onTransactionSelected($event)">
+      </app-transaction>
+    </div>
+  
+    <div class="pagination">
+      <button (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
+      <button (click)="nextPage()">Siguiente</button>
+    </div>
+  </div>
+  

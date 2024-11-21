@@ -1,0 +1,8 @@
+<div class="transaction-container" (click)="onTransactionClick()">
+    <span [ngClass]="getTransactionStyle()">
+      {{ transaction.senderCVU === currentUserCVU ? '-' : '+' }} {{ transaction.amount }}
+    </span>
+    <span>{{ transaction.date | date: 'short' }}</span>
+    <span>{{ transaction.reason }}</span>
+  </div>
+  

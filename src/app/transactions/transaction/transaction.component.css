@@ -1,0 +1,23 @@
+.transaction-sender {
+    color: red;
+    font-weight: bold;
+  }
+  /*Estos dos de aca no se pueden cambiar bajo ningun termino,
+  son para establecer si la transaccion es egreso o ingreso*/
+  .transaction-recipient {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .transaction-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+  }
+  
+  .transaction-container:hover {
+    background-color: #f0f0f0;
+  }
+  
