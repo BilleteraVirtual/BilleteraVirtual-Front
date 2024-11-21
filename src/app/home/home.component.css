@@ -1,0 +1,108 @@
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Body */
+  body {
+    background: linear-gradient(to bottom, #3c3177, #fcfcfc 30%); /* De violeta a blanco */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-top: 20px; /* Para dar espacio en la parte superior */
+  }
+
+  
+  /* Container (moneyManagement) */
+  #moneyManagement {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1em;
+    height: 20em;
+    width: 30em;
+    text-align: center;
+    position: relative;
+}
+  
+
+  #welcome {
+    position: absolute;
+    color: white;
+    left: 0.5em;
+    
+  }
+  #balance {
+    color: black; 
+    margin-top: 0.5em;
+    display: flex;
+    font-size: 2em;
+  }
+  #leyenda {
+    font-size: 0.9em;
+    display: flex;
+    justify-content: left;
+    color: #747474;
+  }
+  
+  /* Buttons */
+  .buttons {
+    background-color: #73408e; /* Usando el color de la paleta */
+    color: white;
+    margin: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    width: fit-content;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    float: left;
+  }
+  
+  .buttons:hover {
+    background-color: #aa4fa5; /* Cambia a un tono más claro al hacer hover */
+  }
+
+  
+  
+  
+  
+  /* Positioning of the ngIf Block */
+  div[ngIf] {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+  
+  /* Reserve Button */
+  button {
+    background-color: #e15fbc; /* Color de la paleta para el botón de ir a reservas */
+    border-radius: 5px;
+    border: none;
+    padding: 12px 20px;
+    width: fit-content;
+    color: white;
+    font-size: 16px;
+    margin-top: 30px; /* Separado un poco del moneyManagement */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #aa4fa5;
+  }
+  
+  /* Loading State */
+  ng-template {
+    font-size: 18px;
+    color: #888;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  #column {
+    display: flex;
+    flex-direction: column;
+  }

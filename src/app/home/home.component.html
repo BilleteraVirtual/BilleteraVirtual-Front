@@ -1,6 +1,14 @@
-<div *ngIf="entityDetails; else loading">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div *ngIf="entityDetails; else loading">
     <div *ngIf="entityDetails.firstName && entityDetails.lastName">
-      <p>Nombre: {{ entityDetails.firstName }} {{ entityDetails.lastName }}</p>
+      <p id="welcome">Hola {{ entityDetails.firstName }}</p>
     </div>
   
     <div *ngIf="entityDetails.businessName && entityDetails.category">
@@ -8,10 +16,24 @@
       <p>Categoría: {{ entityDetails.category }}</p>
     </div>
   </div>
-  
   <ng-template #loading>
     <p>Cargando detalles...</p>
   </ng-template>
-  
 
-  <button (click)="goToReserves()">Ir a Reservas</button>
+  <div id="column">
+    <div id="moneyManagement">
+      <p id="leyenda">Dinero en cuenta</p>
+      <p id="balance">$ {{ entity.balance }}</p>
+      <button class="buttons" (click)="['/iria el componente de ingresar']">
+        <span>Ingresar</span>
+      </button>
+      <button class="buttons" (click)="['/transaction']">
+        <span>Transferir</span>
+      </button>
+    </div>
+  
+      <button id="reservas" (click)="goToReserves()">Ir a Reservas</button>
+  </div>
+  
+</body>
+</html>
