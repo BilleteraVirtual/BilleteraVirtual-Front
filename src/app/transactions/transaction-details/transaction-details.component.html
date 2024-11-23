@@ -1,1 +1,25 @@
-<p>transaction-details works!</p>
+<div class="transaction-details-container">
+    <h1>Detalles de la Transacción</h1>
+  
+    <div *ngIf="transaction">
+      <p><strong>Fecha:</strong> {{ transaction.date | date: 'short' }}</p>
+      <p><strong>Receptor CVU:</strong> {{ transaction.recipientCVU }}</p>
+      <p><strong>Emisor CVU:</strong> {{ transaction.senderCVU }}</p>
+      <p>
+        <strong>Monto:</strong>
+        <span
+          [ngClass]="{
+            'income': transaction.recipientCVU === entityCVU,
+            'expense': transaction.senderCVU === entityCVU
+          }"
+        >
+          {{ transaction.recipientCVU === entityCVU ? '+' : '-' }} {{ transaction.amount | currency:'USD':'symbol' }}
+        </span>
+      </p>
+      <p><strong>Motivo:</strong> {{ transaction.reason || 'No especificado' }}</p>
+      <p><strong>Categoría:</strong> {{ transaction.category?.type || 'Sin categoría' }}</p>
+    </div>
+  
+    <button class="back-button" (click)="goBack()">Volver</button>
+  </div>
+  

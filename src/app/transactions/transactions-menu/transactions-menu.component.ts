@@ -60,7 +60,7 @@ export class TransactionsMenuComponent implements OnInit {
   }
 
   navigateToAddTransaction(): void {
-    this.router.navigate(['/transaction/add']);
+    this.router.navigate(['transaction/addmenu']);
   }
 
   // Maneja la transacción seleccionada (emitida desde el componente hijo)

@@ -50,4 +50,12 @@ import { tap } from 'rxjs';
     
       return this.http.get('http://localhost:3000/entities/details', { headers });
     }
+
+    searchEntity(query: string): Observable<Entity> {
+      const token = localStorage.getItem('token'); // Obtiene el token del localStorage
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}` // Agrega el token en el encabezado Authorization
+      });
+      return this.http.get<Entity>('http://localhost:3000/entities/search', {params: { query }, headers} );
+    }
   }

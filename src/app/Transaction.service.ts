@@ -18,10 +18,15 @@ export class TransactionService {
   }
 
   getTransactionDetails(transactionId: number): Observable<Transaction> {
-    return this.http.get<any>(`${this.baseUrl}/${transactionId}`);
+    const token = localStorage.getItem('token');
+    const headers = { Authorization: `Bearer ${token}` };
+    return this.http.get<any>(`${this.baseUrl}/${transactionId}`, {headers});
   }
 
+
   createTransaction(transaction: Transaction): Observable<Transaction> {
-    return this.http.post<any>(`${this.baseUrl}`, transaction);
+    const token = localStorage.getItem('token');
+    const headers = { Authorization: `Bearer ${token}` };
+    return this.http.post<any>(`${this.baseUrl}/add` , transaction, {headers});
   }
 }

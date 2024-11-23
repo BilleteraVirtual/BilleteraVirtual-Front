@@ -9,6 +9,8 @@ import { ReserveAddComponent } from './reserves/reserve-add/reserve-add.componen
 import { ReserveDetailsComponent } from './reserves/reserve-details/reserve-details.component';
 import { TransactionsMenuComponent } from './transactions/transactions-menu/transactions-menu.component';
 import { TransactionAddComponent } from './transactions/transaction-add/transaction-add.component';
+import { TransactionAddMenuComponent } from './transactions/transaction-add-menu/transaction-add-menu.component';
+import { TransactionDetailsComponent } from './transactions/transaction-details/transaction-details.component';
 
 export const routes: Routes = [
     {
@@ -57,9 +59,21 @@ export const routes: Routes = [
         canActivate: [AuthGuard]
     },
     {
+        path: 'transaction/addmenu',
+        component: TransactionAddMenuComponent,
+        title: 'Agregar Transaccion',
+        canActivate: [AuthGuard]
+    },
+    {
         path: 'transaction/add',
         component: TransactionAddComponent,
-        title: 'Agregar Transacción',
+        title: 'Agregar Transaccion',
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'transaction/:transactionId',
+        component: TransactionDetailsComponent,
+        title: 'Detalles de Transaccion',
         canActivate: [AuthGuard]
     }
 
