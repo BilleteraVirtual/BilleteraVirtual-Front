@@ -1,0 +1,15 @@
+<nav class="navbar">
+  <div class="navbar-logo">
+    <img src="../../assets/logoNexo.png" alt="Logo">
+  </div>
+  <div class="navbar-menu">
+    <ng-container *ngIf="!isLandingPage">
+      <button class="login-button" *ngIf="isRegisterPage" (click)="login()">Iniciar Sesión</button>
+      <button class="register-button" *ngIf="isLoginPage" (click)="signup()">Registrarse</button>
+      <ng-container *ngIf="!isLoginPage && !isRegisterPage">
+        <span class="user-name">{{ userName }}</span>
+        <button class="logout-button" (click)="logout()">Cerrar Sesión</button>
+      </ng-container>
+    </ng-container>
+  </div>
+</nav>
