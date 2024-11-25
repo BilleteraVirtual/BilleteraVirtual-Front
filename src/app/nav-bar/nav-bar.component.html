@@ -3,7 +3,6 @@
     <a href="landingpage"><img src="../../assets/logoNexo.png" alt="Logo"></a>
   </div>
   <div class="navbar-menu">
-
       <button class="login-button" *ngIf="isRegisterPage || isLandingPage"  (click)="login()">Iniciar Sesión</button>
       <button class="register-button" *ngIf="isLoginPage || isLandingPage" (click)="signup()">Registrarse</button>
       <ng-container *ngIf="!isLoginPage && !isRegisterPage && !isLandingPage" >
