@@ -22,6 +22,8 @@ FROM nginx:alpine
 # Copia los archivos de la construcción desde el contenedor de build al contenedor de Nginx
 COPY --from=build /app/dist/billetera-virtual/browser /usr/share/nginx/html
 
+# Copia la configuración personalizada de Nginx
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expone el puerto en el que Nginx servirá la aplicación
 EXPOSE 80
