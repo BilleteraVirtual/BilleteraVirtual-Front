@@ -2,6 +2,11 @@
 body {
   color: #3c3177;
   margin: 0;
+
+  background-image: url('../../assets/ruta-de-tu-imagen.png'); /* Ruta de tu imagen */
+  background-size: cover;  /* Hace que la imagen cubra toda la pantalla */
+  background-position: center;  /* Centra la imagen */
+  
 }
 
 #containerInfo{
@@ -9,6 +14,8 @@ body {
   display: flex;
   flex-direction: column;
   max-width: 50%;
+  position: relative;
+  box-shadow: hsla(0, 0%, 0%, 0.5);
 }
 
 
