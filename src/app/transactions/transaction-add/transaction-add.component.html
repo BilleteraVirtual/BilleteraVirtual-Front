@@ -1,0 +1,55 @@
+<div class="transaction-add-container">
+    <h1>Agregar Transacción</h1>
+  
+    <!-- Datos del receptor -->
+    <div *ngIf="recipient">
+      <h3>Receptor:</h3>
+      <p *ngIf="recipient.type === 'user'">
+        <strong>Usuario:</strong> {{ recipient.firstName }} {{ recipient.lastName }}
+      </p>
+      <p *ngIf="recipient.type === 'company'">
+        <strong>Empresa:</strong> {{ recipient.businessName }}
+        <br />
+        <strong>Categoría:</strong> {{ recipient.categoryType }}
+      </p>
+      <p><strong>CVU:</strong> {{ recipient.CVU }}</p>
+    </div>
+  
+    <!-- Formulario para transacción -->
+    <form (ngSubmit)="submitTransaction()">
+      <div class="form-group">
+        <label for="amount">Monto</label>
+        <input
+          type="number"
+          id="amount"
+          name="amount"
+          [(ngModel)]="transaction.amount"
+          required
+          min="1"
+          placeholder="Ingrese el monto"
+        />
+        <!-- Mostrar error si el saldo es insuficiente -->
+        <p>Dinero disponible: {{entity?.balance}}</p>
+        <p *ngIf="transaction.amount > (entity?.balance ?? 0)" class="error-message">
+          Saldo insuficiente.
+        </p>
+      </div>
+  
+      <div class="form-group">
+        <label for="reason">Motivo</label>
+        <input
+          type="text"
+          id="reason"
+          name="reason"
+          [(ngModel)]="transaction.reason"
+          placeholder="Ingrese el motivo de la transacción"
+        />
+      </div>
+  
+    <button type="submit" [disabled]="transaction.amount > (entity?.balance ?? 0)">Confirmar Transacción</button>
+    </form>
+  
+    <!-- Botón para volver -->
+    <button class="back-button" (click)="goBack()">Volver</button>
+  </div>
+  

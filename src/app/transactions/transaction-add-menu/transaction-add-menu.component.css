@@ -1,0 +1,22 @@
+.search-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .search-container input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .search-result {
+    margin-top: 10px;
+  }
+  
+  .error {
+    color: red;
+  }
+  

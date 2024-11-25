@@ -1,0 +1,34 @@
+<div class="search-container">
+    <input
+      type="text"
+      placeholder="Buscar por CVU o alias"
+      [(ngModel)]="searchQuery"
+      (input)="onSearchInputChange()"
+    />
+  
+    <div class="search-result">
+      <!-- Mostrar resultado si existe -->
+      <div *ngIf="searchResult">
+        <p *ngIf="searchResult.type === 'company'">
+          <strong>Empresa:</strong> {{ searchResult.businessName }}
+        </p>
+        <p *ngIf="searchResult.type === 'user'">
+          <strong>Usuario:</strong> {{ searchResult.firstName }} {{ searchResult.lastName }}
+        </p>
+        <p *ngIf="searchResult.type === 'unknown'">
+          <strong>Entidad desconocida:</strong> {{ searchResult.CVU }}
+        </p>
+  
+        <!-- Botón para agregar transacción -->
+        <button
+          (click)="addTransaction(searchResult)"
+        >
+          Ir a agregar transacción
+        </button>
+      </div>
+  
+      <!-- Mostrar error si no se encuentra -->
+      <p class="error" *ngIf="searchError">{{ searchError }}</p>
+    </div>
+  </div>
+  

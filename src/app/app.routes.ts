@@ -7,6 +7,10 @@ import { AuthGuard } from './authGuard.service';
 import { ReserveMenuComponent } from './reserves/reserve-menu/reserve-menu.component';
 import { ReserveAddComponent } from './reserves/reserve-add/reserve-add.component';
 import { ReserveDetailsComponent } from './reserves/reserve-details/reserve-details.component';
+import { TransactionsMenuComponent } from './transactions/transactions-menu/transactions-menu.component';
+import { TransactionAddComponent } from './transactions/transaction-add/transaction-add.component';
+import { TransactionAddMenuComponent } from './transactions/transaction-add-menu/transaction-add-menu.component';
+import { TransactionDetailsComponent } from './transactions/transaction-details/transaction-details.component';
 
 export const routes: Routes = [
     {
@@ -47,5 +51,30 @@ export const routes: Routes = [
         component: ReserveDetailsComponent,
         title: 'Detalles de Reserva',
         canActivate: [AuthGuard]
+    },
+    {
+        path: 'transactions',
+        component: TransactionsMenuComponent,
+        title: 'Transacciones',
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'transaction/addmenu',
+        component: TransactionAddMenuComponent,
+        title: 'Agregar Transaccion',
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'transaction/add',
+        component: TransactionAddComponent,
+        title: 'Agregar Transaccion',
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'transaction/:transactionId',
+        component: TransactionDetailsComponent,
+        title: 'Detalles de Transaccion',
+        canActivate: [AuthGuard]
     }
+
 ];
