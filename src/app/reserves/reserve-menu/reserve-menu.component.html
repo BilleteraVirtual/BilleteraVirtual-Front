@@ -2,14 +2,22 @@
   <h1>Reservas</h1>
 
   <!-- Botón para agregar una nueva reserva -->
-  <button (click)="navigateToAddReserve()">Agregar Reserva</button>
+  <button 
+  class="floating-button" 
+  (click)="navigateToAddReserve()" 
+  matTooltip="Agregar Reserva">
+  +
+</button>
+
 
   <!-- Lista de reservas -->
   <div class="reserve-list">
     <app-reserve
       *ngFor="let reserve of reserves"
       [reserve]="reserve"
-      (reserveClicked)="navigateToReserveDetails($event)"
-    ></app-reserve>
+      (reserveClicked)="navigateToReserveDetails($event)" 
+    >
+  </app-reserve> 
   </div>
+  
 </div>

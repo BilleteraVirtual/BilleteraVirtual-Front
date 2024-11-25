@@ -1,37 +1,41 @@
-/* Estilo para el contenedor de la reserva */
+#divExterno {
+  box-shadow: 0 0.4rem 0.6rem rgba(9, 1, 54, 0.2); /* Sombra suave para el div externo */
+  padding: 1rem; /* Espacio interno */
+  border-radius: 1rem; /* Bordes redondeados */
+}
+
+#divExterno h3 {
+  margin-left: 0.5rem;
+  margin-bottom: -0.5rem;
+}
+
 .reserve-item {
-    background-color: #f9f9f9; /* Fondo claro */
-    border: 1px solid #ddd;    /* Borde gris claro */
-    border-radius: 8px;        /* Bordes redondeados */
-    padding: 15px;             /* Espaciado interno */
-    margin: 10px 0;            /* Espaciado entre elementos */
-    cursor: pointer;          /* Cambia el cursor al pasar sobre el elemento */
-    transition: all 0.3s ease; /* Transición suave para efectos */
-  }
-  
-  /* Estilo cuando el mouse pasa por encima */
-  .reserve-item:hover {
-    background-color: #e1f5fe;  /* Fondo azul claro */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-  }
-  
-  /* Estilo para el título (razón de la reserva) */
-  .reserve-item h3 {
-    font-size: 1.2rem;          /* Tamaño de fuente moderado */
-    color: #333;                /* Color oscuro */
-    margin: 0 0 5px 0;          /* Espaciado inferior */
-    font-weight: bold;          /* Negrita para hacer que el texto resalte */
-  }
-  
-  /* Estilo para la descripción o monto de la reserva */
-  .reserve-item p {
-    font-size: 1rem;            /* Tamaño de fuente normal */
-    color: #666;                /* Color gris para texto secundario */
-    margin: 0;                  /* Sin margen */
-  }
-  
-  /* Estilo adicional para el texto "Sin descripción" en caso de no tener una razón */
-  .reserve-item h3::after {
-    content: ''; /* Vacío para mostrar el texto si no hay 'reason' */
-  }
-  
+  position: relative; /* Añadido para que los elementos posicionados absolutamente se basen en este contenedor */
+  box-shadow: 0 0.3rem 0.5rem rgba(23, 45, 170, 0.15); /* Sombra suave y pequeña para el div interno */
+  border: 2px solid #e0e0e0; /* Borde de 2 píxeles de grosor */
+  padding: 1rem; /* Espacio interno */
+  margin-top: 1rem; /* Separación entre el contenido */
+  border-radius: 1rem; /* Bordes redondeados */
+}
+
+.reserve-item h5 {
+  margin-top: -0.5rem; /* Ajusta el margen superior del título */
+  margin-bottom: 1rem; /* Espacio debajo del título */
+}
+
+.view-button {
+  position: absolute;
+  margin-top: -2.4rem; /* Centra el botón verticalmente */
+  left: 34rem; /* Centra el botón horizontalmente */
+  background-color: transparent;
+  border: none;
+  color: #aa4fa5;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.view-button:hover {
+  color: #d81b60; /* Cambia el color al pasar el mouse */
+  transform: scale(1.1); /* Solo escala el ícono */
+}
