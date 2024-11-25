@@ -35,6 +35,11 @@ export const routes: Routes = [
         title: 'Landing Page'
     },
     {
+        path: '',
+        redirectTo : 'landingpage',
+        pathMatch : 'full'
+    },
+    {
         path: 'reserves',
         component: ReserveMenuComponent,
         title: 'Reservas',

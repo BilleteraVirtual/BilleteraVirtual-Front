@@ -19,6 +19,7 @@ export class NavBarComponent implements OnInit {
   constructor(private router: Router) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
+        this.isLandingPage = event.url === '/';
         this.isLandingPage = event.url === '/landingpage';
         this.isLoginPage = event.url === '/login';
         this.isRegisterPage = event.url === '/signup';
@@ -34,6 +35,8 @@ export class NavBarComponent implements OnInit {
     localStorage.removeItem('token');
     this.router.navigate(['/landingpage']);  
   }
+
+
 
   login(): void {
     this.router.navigate(['/login']);
