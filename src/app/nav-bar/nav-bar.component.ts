@@ -19,13 +19,12 @@ export class NavBarComponent implements OnInit {
   constructor(private router: Router) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        this.isLandingPage = event.url === '/';
-        this.isLandingPage = event.url === '/landingpage';
+        this.isLandingPage = event.url === '/landingpage' || event.url === '/';
         this.isLoginPage = event.url === '/login';
         this.isRegisterPage = event.url === '/signup';
       }
     });
-  }
+  } 
 
   ngOnInit(): void {
     // Inicializar el Nombre del usuario
