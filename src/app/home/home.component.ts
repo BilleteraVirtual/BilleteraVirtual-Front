@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../auth.service';
 import { Entity } from '../Entity';
+import { NavBarComponent } from '../nav-bar/nav-bar.component';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +23,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadEntityDetails();  // Llamar al método cuando se inicie el componente
-
   }
 
   loadEntityDetails(): void {
