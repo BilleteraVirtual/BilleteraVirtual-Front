@@ -1,12 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router, RouterModule } from '@angular/router';
+import { AuthService } from '../auth.service';
+import { EntityService } from '../Entity.service';
 
 
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
@@ -16,7 +18,9 @@ export class NavBarComponent implements OnInit {
   isRegisterPage: boolean = false;
   userName: string = 'Usuario';
 
-  constructor(private router: Router) {
+  entityDetails: any;
+
+  constructor(private router: Router, private entityService: EntityService) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.isLandingPage = event.url === '/landingpage' || event.url === '/';
@@ -24,10 +28,33 @@ export class NavBarComponent implements OnInit {
         this.isRegisterPage = event.url === '/signup';
       }
     });
+    
   } 
 
   ngOnInit(): void {
-    // Inicializar el Nombre del usuario
+    this.loadEntityDetails();
+  }
+
+  reload(){
+    location.reload();
+  }
+
+  loadEntityDetails(): void {
+    this.entityService.getEntityDetails().subscribe(
+      (response) => {
+        this.entityDetails = response;
+        console.log('Entity details:', this.entityDetails);  // Verifica que los datos estén llegando correctamente
+        if (this.entityDetails.firstName) {
+          this.userName = this.entityDetails.firstName;
+        }
+        else if(this.entityDetails.businessName) {
+          this.userName = this.entityDetails.businessName;
+        }
+      },
+      (error) => {
+        console.error('Error loading entity details:', error);
+      }
+    );
   }
 
   logout(): void {

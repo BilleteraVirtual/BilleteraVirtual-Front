@@ -11,6 +11,7 @@ import { TransactionsMenuComponent } from './transactions/transactions-menu/tran
 import { TransactionAddComponent } from './transactions/transaction-add/transaction-add.component';
 import { TransactionAddMenuComponent } from './transactions/transaction-add-menu/transaction-add-menu.component';
 import { TransactionDetailsComponent } from './transactions/transaction-details/transaction-details.component';
+import { DepositComponent } from './deposit/deposit.component';
 
 export const routes: Routes = [
     {
@@ -79,6 +80,12 @@ export const routes: Routes = [
         path: 'transaction/:transactionId',
         component: TransactionDetailsComponent,
         title: 'Detalles de Transaccion',
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'deposit',
+        component: DepositComponent,
+        title: 'Depositar dinero',
         canActivate: [AuthGuard]
     }
 

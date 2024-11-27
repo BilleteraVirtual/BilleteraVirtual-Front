@@ -4,15 +4,15 @@ import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../auth.service';
 import { Entity } from '../Entity';
+import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { TransactionService } from '../Transaction.service';
 import { TransactionComponent } from '../transactions/transaction/transaction.component';
 import { Transaction } from '../Transaction';
 
-
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, TransactionComponent, RouterModule],
+  imports: [CommonModule, TransactionComponent, RouterModule, NavBarComponent], // Ensure NavBarComponent is included here
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
@@ -25,13 +25,10 @@ export class HomeComponent implements OnInit {
   entityCVU: string = '';
   entity: any;
 
-  
-
   constructor(private entityService: EntityService) {}
 
   ngOnInit(): void {
-    this.loadEntityDetails(); // Llamar al método cuando se inicie el componente
-
+    this.loadEntityDetails();  // Llamar al método cuando se inicie el componente
   }
 
   loadEntityDetails(): void {

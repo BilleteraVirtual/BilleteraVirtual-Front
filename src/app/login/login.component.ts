@@ -1,5 +1,4 @@
-// login.component.ts
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EntityService } from '../Entity.service';
 import { Router } from '@angular/router';
@@ -11,21 +10,30 @@ import { AuthService } from '../auth.service';
   standalone: true,
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'] // Corregir 'styleUrl' a 'styleUrls'
+  styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
   authService = inject(AuthService);
   router = inject(Router);
+
+  // Estado del modal
+  showErrorModal = false;
 
   applyForm = new FormGroup({
     email: new FormControl(''),
     password: new FormControl('')
   });
 
+  async ngOnInit(): Promise<void> {
+    if (await this.authService.loggedIn()) {
+      this.router.navigate(['/home']);
+    }
+  }
+
   public login(formData: any) {
     const body = {
-      "email": formData.email,
-      "password": formData.password
+      email: formData.email,
+      password: formData.password
     };
   
     this.authService.login(body).subscribe(
@@ -33,17 +41,17 @@ export class LoginComponent {
         if (res) {
           console.log('Login successful');
           localStorage.setItem('token', res); // Guarda el token en localStorage
-    
-          // Agrega un retraso de 500ms antes de redirigir a /home
+
           setTimeout(() => {
             this.router.navigate(['/home']); // Redirige al home
-          }, 500); // Puedes ajustar el tiempo según sea necesario
+          }, 200);
         } else {
-          console.log('Login failed');
+          this.showErrorModal = true; // Muestra el modal en caso de error
         }
       },
       (error) => {
         console.error('Login error:', error);
+        this.showErrorModal = true; // Muestra el modal en caso de error
       }
     );
   }
@@ -55,5 +63,9 @@ export class LoginComponent {
 
   public cancelar() {
     this.router.navigate(['/landingpage']);
+  }
+
+  public closeModal() {
+    this.showErrorModal = false; // Oculta el modal
   }
 }
