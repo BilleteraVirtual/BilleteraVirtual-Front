@@ -1,71 +1,96 @@
-<form [formGroup]="signupForm" (ngSubmit)="submit()">
-  <!-- Campos comunes (Entity) -->
-  <div formGroupName="entity">
-    <label>Alias</label>
-    <input formControlName="alias" type="text" />
-    <div *ngIf="signupForm.get('entity.alias')?.invalid && signupForm.get('entity.alias')?.touched">
-      <small>El alias es obligatorio.</small>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <!-- Fondo con Ondas -->
+  <div class="wave"></div>
+  <div class="wave"></div>
+  <div class="wave"></div>
+
+  <form [formGroup]="signupForm" (ngSubmit)="submit()">
+    <!-- Título centrado -->
+    <h1 class="form-title">NEXO</h1>
+    <h2 id="registro" class="form-title">Registro</h2>
+    
+    <div class="left-column">
+      <div formGroupName="entity">
+        <label>Alias</label>
+        <input formControlName="alias" type="text" />
+        <div *ngIf="signupForm.get('entity.alias')?.invalid && signupForm.get('entity.alias')?.touched">
+          <small>El alias es obligatorio.</small>
+        </div>
+    
+        <label>Email</label>
+        <input formControlName="email" type="email" />
+        <div *ngIf="signupForm.get('entity.email')?.invalid && signupForm.get('entity.email')?.touched">
+          <small>El email es obligatorio y debe ser válido.</small>
+        </div>
+    
+        <label>Password</label>
+        <input formControlName="password" type="password" />
+        <div *ngIf="signupForm.get('entity.password')?.invalid && signupForm.get('entity.password')?.touched">
+          <small>La contraseña es obligatoria.</small>
+        </div>
+      </div>
+    
+      <label>Tipo de usuario</label>
+      <select formControlName="userType" (change)="onUserTypeChange($event)">
+        <option value="" disabled selected>Selecciona una opción</option>
+        <option value="user">Usuario</option>
+        <option value="company">Empresa</option>
+      </select>
     </div>
-
-    <label>Email</label>
-    <input formControlName="email" type="email" />
-    <div *ngIf="signupForm.get('entity.email')?.invalid && signupForm.get('entity.email')?.touched">
-      <small>El email es obligatorio y debe ser válido.</small>
+    
+    <div class="right-column">
+      <div formGroupName="company" *ngIf="isCompany">
+        <label>Nombre de la empresa</label>
+        <input formControlName="businessName" type="text" />
+        <div *ngIf="signupForm.get('company.businessName')?.invalid && signupForm.get('company.businessName')?.touched">
+          <small>El nombre de la empresa es obligatorio.</small>
+        </div>
+    
+        <label>Categoría</label>
+        <select formControlName="category">
+          <option value="" disabled selected>Selecciona una categoría</option>
+          <option *ngFor="let category of categories" [value]="category.idCategory">{{ category.type }}</option>
+        </select>
+        <div *ngIf="signupForm.get('company.category')?.invalid && signupForm.get('company.category')?.touched">
+          <small>La categoría es obligatoria.</small>
+        </div>
+      </div>
+    
+      <div formGroupName="user" *ngIf="!isCompany">
+        <label>DNI</label>
+        <input formControlName="DNI" type="text" />
+        <div *ngIf="signupForm.get('user.DNI')?.invalid && signupForm.get('user.DNI')?.touched">
+          <small>El DNI es obligatorio.</small>
+        </div>
+    
+        <label>Nombre</label>
+        <input formControlName="firstName" type="text" />
+        <div *ngIf="signupForm.get('user.firstName')?.invalid && signupForm.get('user.firstName')?.touched">
+          <small>El nombre es obligatorio.</small>
+        </div>
+    
+        <label>Apellido</label>
+        <input formControlName="lastName" type="text" />
+        <div *ngIf="signupForm.get('user.lastName')?.invalid && signupForm.get('user.lastName')?.touched">
+          <small>El apellido es obligatorio.</small>
+        </div>
+      </div>
+  
+      <!-- Botón de registro a la derecha -->
+      <button type="submit" [disabled]="!signupForm.valid" class="register-btn">Registrar Cuenta</button>
     </div>
+  </form>
+  
+    
+</body>
+</html>
 
-    <label>Password</label>
-    <input formControlName="password" type="password" />
-    <div *ngIf="signupForm.get('entity.password')?.invalid && signupForm.get('entity.password')?.touched">
-      <small>La contraseña es obligatoria.</small>
-    </div>
-  </div>
 
-  <!-- Selección de tipo de usuario -->
-  <label>Tipo de usuario</label>
-  <select formControlName="userType" (change)="onUserTypeChange($event)">
-    <option value="" disabled selected>Selecciona una opción</option>
-    <option value="user">Usuario</option>
-    <option value="company">Empresa</option>
-  </select>
-
-  <!-- Campos específicos para Company -->
-  <div formGroupName="company" *ngIf="isCompany">
-    <label>Nombre de la empresa</label>
-    <input formControlName="businessName" type="text" />
-    <div *ngIf="signupForm.get('company.businessName')?.invalid && signupForm.get('company.businessName')?.touched">
-      <small>El nombre de la empresa es obligatorio.</small>
-    </div>
-
-    <label>Categoría</label>
-    <select formControlName="category">
-      <option value="" disabled selected>Selecciona una categoría</option>
-      <option *ngFor="let category of categories" [value]="category.idCategory">{{ category.type }}</option>
-    </select>
-    <div *ngIf="signupForm.get('company.category')?.invalid && signupForm.get('company.category')?.touched">
-      <small>La categoría es obligatoria.</small>
-    </div>
-  </div>
-
-  <!-- Campos específicos para User -->
-  <div formGroupName="user" *ngIf="!isCompany">
-    <label>DNI</label>
-    <input formControlName="DNI" type="text" />
-    <div *ngIf="signupForm.get('user.DNI')?.invalid && signupForm.get('user.DNI')?.touched">
-      <small>El DNI es obligatorio.</small>
-    </div>
-
-    <label>Nombre</label>
-    <input formControlName="firstName" type="text" />
-    <div *ngIf="signupForm.get('user.firstName')?.invalid && signupForm.get('user.firstName')?.touched">
-      <small>El nombre es obligatorio.</small>
-    </div>
-
-    <label>Apellido</label>
-    <input formControlName="lastName" type="text" />
-    <div *ngIf="signupForm.get('user.lastName')?.invalid && signupForm.get('user.lastName')?.touched">
-      <small>El apellido es obligatorio.</small>
-    </div>
-  </div>
-
-  <button type="submit" [disabled]="!signupForm.valid">Registrar Cuenta</button>
-</form>
