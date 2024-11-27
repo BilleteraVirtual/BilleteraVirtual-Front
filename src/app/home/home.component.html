@@ -7,10 +7,7 @@
 </head>
 <body>
   <div *ngIf="entityDetails; else loading">
-    <div *ngIf="entityDetails.firstName && entityDetails.lastName">
-      <p id="welcome">Hola {{ entityDetails.firstName }}</p>
-    </div>
-  
+
     <div *ngIf="entityDetails.businessName && entityDetails.category">
       <p>Empresa: {{ entityDetails.businessName }}</p>
       <p>Categoría: {{ entityDetails.category }}</p>
@@ -23,27 +20,31 @@
   <div id="main-container">
     <!-- Money Management Section -->
     <div id="moneyManagement">
-      <p id="leyenda">Dinero en cuenta</p>
+      <p id="leyenda">Dinero en cuenta</p> 
       <p id="balance">$ {{ entity.balance }}</p>
-      <button class="buttons" routerLink="/deposit">
-        <span>Ingresar</span>
-      </button>
-      <button class="buttons" routerLink="/transactions">
-        <span>Transferir</span>
-      </button>
+
+      <hr>
+      <button id="cvu-button" class="buttons" (click)="toggleDropdown()"><img src="../../assets/CVU.png" alt=""></button>
+      <div id="cvu-dropdown" class="cvu-dropdown">
+        <p>CVU: {{ entityCVU }}</p> <!-- Muestra el CVU de la variable de TypeScript -->
+        <p><strong>Alias:</strong> {{ entity?.alias }}</p> <!-- Muestra el alias de la entidad -->
+      </div>
+      <button class="buttons" routerLink="/deposit"> <img src="../../assets/Ingresar.png" alt=""></button>
+      <button class="buttons" routerLink="/transaction/add"><img src="../../assets/Transferir.png" alt=""></button>
+
     </div>
 
     <!-- Transactions List -->
     <div id="transactions">
-      <h3>Historial de Transacciones</h3>
+      <h3>Tu última actividad</h3>
       <ul>
-        <li *ngFor="let transaction of transactions">
+        <div *ngFor="let transaction of transactions">
           <app-transaction 
            [transaction]="transaction" 
            [currentUserCVU]="entityCVU" 
            (transactionSelected)="onTransactionSelected($event)">
           </app-transaction>
-        </li>
+        </div>
       </ul>
     </div>
   </div>

@@ -12,7 +12,7 @@ import { Transaction } from '../Transaction';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, TransactionComponent, RouterModule, NavBarComponent], // Ensure NavBarComponent is included here
+  imports: [CommonModule, TransactionComponent, RouterModule], // Ensure NavBarComponent is included here
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
@@ -23,6 +23,8 @@ export class HomeComponent implements OnInit {
   transactionService = inject(TransactionService);
   transactions: any[] = [];
   entityCVU: string = '';
+  entityAlias: string = ''; 
+  showCvuDetails: boolean = false; 
   entity: any;
 
   constructor(private entityService: EntityService) {}
@@ -31,6 +33,13 @@ export class HomeComponent implements OnInit {
     this.loadEntityDetails();  // Llamar al método cuando se inicie el componente
   }
 
+  toggleDropdown() {
+    const dropdown = document.getElementById('cvu-dropdown');
+    if (dropdown) {
+      dropdown.classList.toggle('show');
+    }
+  }
+  
   loadEntityDetails(): void {
     this.entityService.getEntityDetails().subscribe(
       (response) => {
@@ -63,6 +72,7 @@ export class HomeComponent implements OnInit {
     this.entityService.getOneEntity(entityCVU).subscribe({
       next: (entity: any) => {
         this.entity = entity;
+        this.entityAlias = entity.alias || ''; 
         this.loadTransactions(); // Llamar al método para cargar las transacciones
         console.log('Entity:', this.entity);
       },
