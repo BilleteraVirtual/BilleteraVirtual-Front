@@ -2,13 +2,30 @@
 body {
   color: #3c3177;
   margin: 0;
+
+  background-image: linear-gradient(rgba(0, 0, 0, 0.438), rgba(0, 0, 0, 0)), /* Capa oscura */url('../../assets/ruta-de-tu-imagen.png'); /* Ruta de tu imagen */
+  background-size: cover;  /* Hace que la imagen cubra toda la pantalla */
+  background-position: center;  /* Centra la imagen */
+
+  display: flex; /* Activa Flexbox */
+  flex-direction: column; /* Coloca los hijos (containerInfo y cuadros) en columna */
+  align-items: center; /* Centra horizontalmente */
+  justify-content: flex-start; /* Mueve el contenido hacia arriba */
+  padding-top: 5%; /* Añade un pequeño espacio desde la parte superior */
+  height: 100%; /* Ocupa toda la pantalla */
 }
 
-#containerInfo{
+
+#containerInfo {
   padding: 2em;
   display: flex;
   flex-direction: column;
-  max-width: 50%;
+  max-width: 38%;
+  max-height: 50%;
+  position: relative;
+  background-color:#f3c8e46e;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Ajuste al estilo del box-shadow */
+  border-radius: 30px;
 }
 
 
@@ -18,7 +35,7 @@ body {
   --s: 0.1em;          /* grosor de la línea */
   --c: #73408e;        /* color de la línea */
   
-  color: #3c3177d3;
+  color: #3c3177;
   background: 
     linear-gradient(90deg,var(--c) 50%,#000 0) calc(100% - var(--_p,0%))/200% 100%,
     linear-gradient(var(--c) 0 0) 0% 100%/var(--_p,0%) var(--s) no-repeat;
@@ -26,7 +43,7 @@ body {
   background-clip: text,padding-box;
   transition: 0.5s;
   font-size: 9rem;
-  text-align: left;
+  text-align: center;
   cursor:default;
   margin-bottom: 1.5rem;
 }
@@ -42,8 +59,8 @@ body {
 
 #titulo{
   display: flex;
-  align-items: left;
-  justify-content: left ;
+  align-items: center;
+  justify-content: center ;
   flex-direction: column;
 
 }
@@ -51,21 +68,34 @@ body {
 p {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #3c3177;
+  color: #ffffff;
   margin: 1rem 0;
-  text-align: left;
+  text-align: center;
 }
 
-#slogan{
+#slogan {
   display: flex;
   font-size: 0.95em;
   justify-content: center;
+  text-align: center;
+
+  /* Gradiente inicial */
+  background: #3c3177;
+  background-size: 400%; /* Amplía el gradiente para un efecto de movimiento */
+  -webkit-background-clip: text; /* Aplica el gradiente solo al texto */
+  background-clip: text;
+  color: transparent; /* Hace que solo se vea el gradiente */
+
+
 }
+
+
+
 
 ul {
   list-style: none;
   padding: 0;
-  color: #73408e;
+  color: #ffffff;
 }
 
 li {
@@ -73,10 +103,46 @@ li {
   font-size: 1rem;
   padding: 0.5rem 0;
   display: flex;
-  align-items: left;
+  align-items: center;
   flex-direction: column;
 }
 
 /* Icono estilo círculo en cada ítem de la lista */
 
+#cuadrosContainer {
+  display: flex; /* Activa Flexbox */
+  justify-content: space-between; /* Espacio uniforme entre los cuadros */
+  align-items: center; /* Alinea verticalmente */
+  gap: 1rem; /* Espaciado entre cuadros */
+  margin-top: 5rem; /* Incrementa el espacio entre #containerInfo y los cuadros */
+  width: 90%; /* Ajusta el ancho máximo del contenedor */
+}
 
+
+
+.cuadros {
+  padding: 1em;
+  height: 6em;
+  background-color: #c9c9c9ee;
+  border-radius: 15px;
+  display: flex;
+  align-items: center; /* Centra texto verticalmente */
+  justify-content: center; /* Centra texto horizontalmente */
+  flex: 1; /* Los cuadros se expanden proporcionalmente */
+  max-width: 20%; /* Limita el tamaño máximo de cada cuadro */
+  text-align: center; /* Asegura el texto centrado */
+  font-size: large;
+}
+
+#cuadro1 {
+  color: #7e39a3;
+}
+#cuadro2 {
+  color: #7e39a3;
+}
+#cuadro3 {
+  color: #7e39a3;
+}
+#cuadro4 {
+  color: #7e39a3;
+}
