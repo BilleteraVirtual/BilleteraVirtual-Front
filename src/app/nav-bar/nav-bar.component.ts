@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { EntityService } from '../Entity.service';
 
@@ -8,7 +8,7 @@ import { EntityService } from '../Entity.service';
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
