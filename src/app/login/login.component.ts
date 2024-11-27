@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EntityService } from '../Entity.service';
 import { Router } from '@angular/router';
@@ -12,7 +12,7 @@ import { AuthService } from '../auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
   authService = inject(AuthService);
   router = inject(Router);
 
@@ -23,6 +23,12 @@ export class LoginComponent {
     email: new FormControl(''),
     password: new FormControl('')
   });
+
+  async ngOnInit(): Promise<void> {
+    if (await this.authService.loggedIn()) {
+      this.router.navigate(['/home']);
+    }
+  }
 
   public login(formData: any) {
     const body = {
@@ -38,7 +44,7 @@ export class LoginComponent {
 
           setTimeout(() => {
             this.router.navigate(['/home']); // Redirige al home
-          }, 500);
+          }, 200);
         } else {
           this.showErrorModal = true; // Muestra el modal en caso de error
         }
