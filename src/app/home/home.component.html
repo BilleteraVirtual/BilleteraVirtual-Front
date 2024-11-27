@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Home</title>
 </head>
 <body>
   <div *ngIf="entityDetails; else loading">
@@ -20,7 +20,8 @@
     <p>Cargando detalles...</p>
   </ng-template>
 
-  <div id="column">
+  <div id="main-container">
+    <!-- Money Management Section -->
     <div id="moneyManagement">
       <p id="leyenda">Dinero en cuenta</p>
       <p id="balance">$ {{ entity.balance }}</p>
@@ -31,9 +32,20 @@
         <span>Transferir</span>
       </button>
     </div>
-  
-      <button id="reservas" (click)="goToReserves()">Ir a Reservas</button>
+
+    <!-- Transactions List -->
+    <div id="transactions">
+      <h3>Historial de Transacciones</h3>
+      <ul>
+        <li *ngFor="let transaction of transactions">
+          <app-transaction 
+           [transaction]="transaction" 
+           [currentUserCVU]="entityCVU" 
+           (transactionSelected)="onTransactionSelected($event)">
+          </app-transaction>
+        </li>
+      </ul>
+    </div>
   </div>
-  
 </body>
 </html>
