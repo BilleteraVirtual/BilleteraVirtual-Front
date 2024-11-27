@@ -1,29 +1,63 @@
 /* Estilos generales para la página de detalles de la reserva */
 .reserve-detail {
+  margin-top: 1rem;
+  box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.15); /* Sombra suave y pequeña para el div interno */
+  border: 2px solid #e0e0e0; /* Borde de 2 píxeles de grosor */
   padding: 2rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  border-radius: 2rem;
   background-color: #fafafa;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   max-width: 600px; /* Limitar el ancho máximo */
   margin: 0 auto; /* Centrar el contenido */
 }
 
+.reserve-detail p{
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+#RazónLabel{
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+
 h2 {
   margin-left: 1rem;
   font-size: 2.2rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 3.5rem;  /* Aumentar el margen inferior */
   font-weight: bold;
-  color: #333;
+  color: #4a4a4a;
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
 }
+
+
+/* Línea divisoria */
+.divider {
+  border: none; /* Sin borde tradicional */
+  border-top: 2px solid #e0e0e0; /* Línea superior */
+  width: 100%; /* Extender la línea al ancho completo */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  margin: auto;
+}
+
+.dividerExtraerDepositar {
+  border: none; /* Sin borde tradicional */
+  border-top: 2px solid #e0e0e0; /* Línea superior */
+  margin: 2rem; /* Separación vertical */
+  margin-left: -2rem;
+  width: 114%; /* Extender la línea al ancho completo */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
 
 button {
   padding: 0.8rem 1.5rem;
   margin: 0.8rem;
+  margin-top: 1.5rem;
   font-size: 1.1rem;
-  background-color: #007bff;
+  background-color: #aa4fa5;
   color: white;
   border: none;
   border-radius: 8px;
@@ -32,7 +66,7 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #d81b89;
   transform: scale(1.05);
 }
 
@@ -159,4 +193,12 @@ button:hover {
 .btn-cancel:hover {
   background-color: #bbb;
   transform: scale(1.05);
+}
+
+#reservaDiv {
+  padding-bottom: 2rem;
+  background-color: #e6e6e6; /* Fondo blanco para cada reserva */
+  border-radius: 1rem; /* Bordes redondeados */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Efecto suave */
 }
