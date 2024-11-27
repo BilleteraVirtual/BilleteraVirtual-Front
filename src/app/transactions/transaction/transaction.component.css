@@ -12,12 +12,47 @@
   .transaction-container {
     display: flex;
     justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-    cursor: pointer;
+    align-items: center;
+    padding: 15px;
+
+
   }
+
   
   .transaction-container:hover {
     background-color: #f0f0f0;
   }
   
+
+.icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../../../assets/Trasferencia.png");
+}
+
+
+/* Detalles de la transacción */
+.details {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.details h3 {
+  margin: 0;
+  font-size: 1.1em;
+}
+
+.details p {
+  margin: 5px 0;
+  color: gray;
+  font-size: 0.9em;
+}
+
+/* Cantidad */
+.amount {
+  font-weight: bold;
+  font-size: 1em;
+}
