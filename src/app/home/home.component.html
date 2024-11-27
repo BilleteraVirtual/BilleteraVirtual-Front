@@ -25,10 +25,10 @@
     <div id="moneyManagement">
       <p id="leyenda">Dinero en cuenta</p>
       <p id="balance">$ {{ entity.balance }}</p>
-      <button class="buttons" (click)="['/iria el componente de ingresar']">
+      <button class="buttons" routerLink="/deposit">
         <span>Ingresar</span>
       </button>
-      <button class="buttons" (click)="['/transaction']">
+      <button class="buttons" routerLink="/transactions">
         <span>Transferir</span>
       </button>
     </div>

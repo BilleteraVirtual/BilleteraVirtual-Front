@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { EntityService } from '../Entity.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../auth.service';
 import { Entity } from '../Entity';
@@ -12,7 +12,7 @@ import { Transaction } from '../Transaction';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, TransactionComponent],
+  imports: [CommonModule, TransactionComponent, RouterModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
