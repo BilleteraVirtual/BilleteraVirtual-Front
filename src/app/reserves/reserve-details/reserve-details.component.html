@@ -1,9 +1,11 @@
-<div *ngIf="reserve">
+<div *ngIf="reserve" id="reservaDiv">
   <h2>Detalles de la Reserva</h2>
   
   <div class="reserve-detail">
-    <p><strong>Razón:</strong> {{ reserve.reason || 'Sin descripción' }}</p>
+    <p id="RazónLabel"><strong>Razón:</strong> {{ reserve.reason || 'Sin descripción' }}</p>
     <p><strong>Monto:</strong> {{ reserve.amount }}</p>
+
+    <hr class="divider" />
 
     <!-- Botones para editar, eliminar, extraer e ingresar -->
     <button (click)="deleteReserve()">Eliminar</button>
@@ -20,6 +22,7 @@
 <div *ngIf="showPopup && popupAction === 'delete'" class="popup-overlay">
   <div class="popup-content">
     <h3>¿Estás seguro de que deseas eliminar esta reserva?</h3>
+
     <div class="popup-buttons">
       <button class="btn-confirm" (click)="confirmPopupAction()">Confirmar</button>
       <button class="btn-cancel" (click)="closePopup()">Cancelar</button>
@@ -31,8 +34,12 @@
 <div *ngIf="showPopup && popupAction !== 'delete'" class="popup-overlay">
   <div class="popup-content">
     <h3>{{ popupAction === 'extract' ? 'Extraer Dinero' : 'Ingresar Dinero' }}</h3>
-    <label for="amount">Monto:</label>
+  
+    <hr class="dividerExtraerDepositar"/>
+
+    <label for="amount">Monto</label>
     <input type="number" [(ngModel)]="popupAmount" id="amount" />
+    
     <div class="popup-buttons">
       <button class="btn-confirm" (click)="confirmPopupAction()">Confirmar</button>
       <button class="btn-cancel" (click)="closePopup()">Cancelar</button>

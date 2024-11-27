@@ -1,89 +1,90 @@
 .reserve-form-container {
-    background-color: #fff; /* Fondo blanco para el formulario */
-    padding: 2rem; /* Espaciado interno */
-    border-radius: 1rem; /* Bordes redondeados */
-    box-shadow: 0 4px 12px rgba(114, 90, 193, 0.4); /* Sombra sutil */
-    max-width: 500px; /* Ancho máximo */
-    margin: 2rem auto; /* Centrado en la página */
-    font-family: 'Roboto', sans-serif; /* Tipografía moderna */
-  }
-  
-  .reserve-form-container h2 {
-    font-size: 2rem; /* Tamaño del título */
-    color: #333; /* Color oscuro para el texto */
-    text-align: center; /* Centrar el texto */
-    margin-bottom: 1.5rem; /* Espaciado debajo del título */
-  }
-  
-  .form-group {
-    margin-bottom: 1.5rem; /* Espacio entre los campos */
-  }
-  
-  .form-group label {
-    font-size: 1.1rem; /* Tamaño del texto del label */
-    color: #555; /* Color gris oscuro */
-    display: block;
-    margin-bottom: 0.5rem; /* Espaciado debajo del label */
-  }
-  
-  .form-group input {
-    width: 100%; /* Que ocupe todo el ancho del contenedor */
-    padding: 0.8rem; /* Relleno interno */
-    font-size: 1rem; /* Tamaño de texto */
-    border: 1px solid #ccc; /* Borde gris claro */
-    border-radius: 0.5rem; /* Bordes redondeados */
-    outline: none; /* Sin borde cuando está seleccionado */
-    transition: border-color 0.3s ease; /* Transición suave */
-  }
-  
-  .form-group input:focus {
-    border-color: #e15fbc; /* Color verde cuando se selecciona el input */
-  }
-  
-  .error {
-    color: #d32f2f; /* Color rojo para los mensajes de error */
-    font-size: 0.9rem; /* Tamaño pequeño */
-    margin-top: 0.5rem;
-  }
-  
-  button {
-    width: 100%; /* Ancho completo del botón */
-    padding: 1rem; /* Relleno interno */
-    background-color: #3c3177   ; /* Fondo verde */
-    color: white; /* Texto blanco */
-    border: none; /* Sin borde */
-    border-radius: 0.5rem; /* Bordes redondeados */
-    font-size: 1.1rem; /* Tamaño de texto */
-    cursor: pointer; /* Indicador de que es un botón clickeable */
-    transition: background-color 0.3s ease; /* Transición suave */
-  }
-  
-  button:hover {
-    background-color: #31266d; /* Fondo más oscuro al pasar el mouse */
-    transform: scale(1.005);
-  }
-  
-  button:disabled {
-    background-color: #e15fbc; /* Fondo verde claro cuando está deshabilitado */
-    cursor: not-allowed; /* Cambiar cursor cuando el botón está deshabilitado */
-  }
-  
+  background-color: #fff; /* Fondo blanco para el formulario */
+  padding: 2rem; /* Espaciado interno */
+  border-radius: 1rem; /* Bordes redondeados */
+  box-shadow: 0 4px 12px rgba(114, 90, 193, 0.4); /* Sombra sutil */
+  max-width: 500px; /* Ancho máximo */
+  margin: 2rem auto; /* Centrado en la página */
+  font-family: 'Roboto', sans-serif; /* Tipografía moderna */
+  margin-top: 5rem;
+}
 
-  
-  .error {
-    color: #d81b60;
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
-    margin-left: 0.3rem;
-  }
-  
-  button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  } 
+.reserve-form-container h2 {
+  font-size: 2rem; /* Tamaño del título */
+  color: #333; /* Color oscuro para el texto */
+  text-align: center; /* Centrar el texto */
+  margin-bottom: 1.5rem; /* Espaciado debajo del título */
+}
 
-  #mensajeDinero{
-    margin-left: 0.3rem;
-    margin-top: 0.5rem;
-    font-size: 0.8rem;
-  }
+.form-group {
+  margin-bottom: 1.5rem; /* Espacio entre los campos */
+}
+
+.form-group label {
+  font-size: 1.1rem; /* Tamaño del texto del label */
+  color: #555; /* Color gris oscuro */
+  display: block;
+  margin-bottom: 0.5rem; /* Espaciado debajo del label */
+}
+
+.form-group input {
+  width: 100%; /* Que ocupe todo el ancho del contenedor */
+  padding: 0.8rem; /* Relleno interno */
+  font-size: 1rem; /* Tamaño de texto */
+  border: 1px solid #ccc; /* Borde gris claro */
+  border-radius: 0.5rem; /* Bordes redondeados */
+  outline: none; /* Sin borde cuando está seleccionado */
+  transition: border-color 0.3s ease; /* Transición suave */
+}
+
+.form-group input:focus {
+  border-color: #e15fbc; /* Color verde cuando se selecciona el input */
+}
+
+.error {
+  color: #d32f2f; /* Color rojo para los mensajes de error */
+  font-size: 0.9rem; /* Tamaño pequeño */
+  margin-top: 0.5rem;
+}
+
+button {
+  width: 100%; /* Ancho completo del botón */
+  padding: 1rem; /* Relleno interno */
+  background-color: #3c3177   ; /* Fondo verde */
+  color: white; /* Texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 0.5rem; /* Bordes redondeados */
+  font-size: 1.1rem; /* Tamaño de texto */
+  cursor: pointer; /* Indicador de que es un botón clickeable */
+  transition: background-color 0.3s ease; /* Transición suave */
+}
+
+button:hover {
+  background-color: #31266d; /* Fondo más oscuro al pasar el mouse */
+  transform: scale(1.005);
+}
+
+button:disabled {
+  background-color: #e15fbc; /* Fondo verde claro cuando está deshabilitado */
+  cursor: not-allowed; /* Cambiar cursor cuando el botón está deshabilitado */
+}
+
+
+
+.error {
+  color: #d81b60;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  margin-left: 0.3rem;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+} 
+
+#mensajeDinero{
+  margin-left: 0.3rem;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+}
