@@ -1,62 +1,121 @@
+/* Contenedor principal de la transacción */
 .transaction-add-container {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-  }
-  
-  h1 {
-    text-align: center;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  input {
-    width: 100%;
-    padding: 8px;
-    font-size: 16px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  .back-button {
-    margin-top: 10px;
-    background-color: #6c757d;
-  }
-  
-  .back-button:hover {
-    background-color: #5a6268;
-  }
-  
-  .error-message {
-    color: red;
-    font-size: 0.9em;
-    margin-top: 0.5em;
-  }
-  
+  max-width: 37.5rem; /* 600px en rem */
+  margin: 1.5rem auto; /* Reducir margen superior e inferior */
+  padding: 1.5rem; /* Reducir padding */
+  border: 1px solid #ddd;
+  border-radius: 0.8rem; /* Bordes más sutiles */
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra más ligera */
+}
+
+/* Título principal */
+h1 {
+  text-align: center;
+  color: #73408e; /* Violeta */
+  font-size: 1.8rem; /* Reducir tamaño */
+  margin-bottom: 1rem; /* Reducir espacio debajo del título */
+}
+
+/* Sección del receptor */
+.transaction-add-container h3 {
+  color: #73408e;
+  margin-bottom: 0.3rem;
+  font-size: 1.1rem;
+}
+
+.transaction-add-container p {
+  font-size: 1rem;
+  color: #333;
+  margin: 0.5rem 0;
+}
+
+.transaction-add-container strong {
+  color: #73408e; /* Violeta destacado */
+}
+
+/* Estilo del formulario */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem; /* Reducir el espacio entre los campos */
+}
+
+/* Estilo de las entradas del formulario */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Etiquetas */
+label {
+  font-size: 1rem;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Campos de entrada */
+input[type="number"],
+input[type="text"] {
+  padding: 0.4rem; /* Reducir padding para hacer los campos más compactos */
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.4rem; /* Bordes más sutiles */
+  width: 100%;
+  transition: border-color 0.3s ease;
+}
+
+/* Campos enfocados */
+input[type="number"]:focus,
+input[type="text"]:focus {
+  border-color: #73408e;
+  outline: none;
+}
+
+/* Estilo de error */
+.error-message {
+  color: red;
+  font-size: 0.85rem; /* Reducir el tamaño del texto del error */
+  margin-top: 0.5rem;
+}
+
+/* Mostrar saldo disponible */
+.transaction-add-container p {
+  font-size: 0.95rem; /* Reducir tamaño del texto de saldo */
+  color: #333;
+}
+
+/* Botón principal */
+button[type="submit"] {
+  padding: 0.6rem; /* Reducir altura del botón */
+  background-color: #73408e; /* Violeta */
+  color: #fff;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #6c2a91; /* Violeta más oscuro */
+}
+
+/* Botón de retroceso */
+.back-button {
+  padding: 0.6rem; /* Reducir altura del botón */
+  background-color: #6c757d;
+  color: #fff;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.back-button:hover {
+  background-color: #5a6268; /* Gris más oscuro */
+}

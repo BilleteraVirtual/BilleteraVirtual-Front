@@ -82,10 +82,7 @@ body {
 }
 
 .pagination {
-    position: fixed; /* Fija los botones en la pantalla */
-    bottom: 2rem;    /* Los posiciona a 2rem desde la parte inferior */
-    left: 50%;       /* Centra horizontalmente */
-    transform: translateX(-50%); /* Ajusta para un centrado perfecto */
+
     display: flex;
     justify-content: center;
     gap: 1rem;       /* Espaciado entre los botones */
