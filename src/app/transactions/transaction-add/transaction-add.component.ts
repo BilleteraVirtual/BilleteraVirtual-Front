@@ -99,7 +99,7 @@ export class TransactionAddComponent implements OnInit {
     this.transactionService.createTransaction(this.transaction).subscribe({
       next: (response: any) => {
         console.log('Transacción creada exitosamente:', response);
-        this.router.navigate(['/transactions']); // Redirige al listado de transacciones o donde desees
+        this.router.navigate(['/home']); // Redirige al listado de transacciones o donde desees
       },
       error: (err: any) => {
         console.error('Error al crear transacción:', err);
