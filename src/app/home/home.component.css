@@ -14,48 +14,107 @@ body {
   justify-content: center;
   align-items: flex-start;
   min-height: 100vh;
-  padding: 20px;
+  padding: 1.25rem; /* 20px */
 }
 
 /* Main Container */
 #main-container {
   display: flex;
-  gap: 20px;
+  gap: 1.25rem; /* 20px */
 }
 
 /* Money Management Section */
 #moneyManagement {
   background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: 300px;
+  border-radius: 0.5rem; /* Sin cambio */
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); /* 0 4px 8px */
+  padding: 2rem; /* Sin cambio */
+  width: 30rem; /* 30rem */
+  height: 15rem; /* 15rem */
   text-align: center;
 }
 
 #leyenda {
-  font-size: 1em;
+  font-size: 1em; /* Sin cambio */
   color: #747474;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem; /* 10px */
 }
 
 #balance {
   color: #333;
-  font-size: 2em;
-  margin: 10px 0;
+  font-size: 2em; /* Sin cambio */
+  margin: 0.625rem 0; /* 10px 0 */
+}
+
+.button-container{
+  display: flex;
+  justify-content: center;
 }
 
 .buttons {
   background-color: #c5a3da; /* Violeta suave */
   color: white;
   border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  margin: 10px 5px;
+  border-radius: 50%; /* Botón redondo */
+  width: 3rem; /* Ancho del botón */
+  height: 3rem; /* Altura del botón, igual para mantener forma circular */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  font-size: 1em;
+  font-size: 1rem; /* Tamaño del texto */
   transition: background-color 0.3s ease;
+  margin: 0.625rem; /* Espaciado entre botones */
 }
+
+.buttons:hover {
+  background-color: #a982c2; /* Violeta más oscuro al hacer hover */
+}
+
+/* Icono dentro del botón redondo */
+.buttons img {
+  border-radius: 50%; /* Asegura que también sea redondeado si es necesario */
+  object-fit: cover; /* Para que las imágenes se ajusten bien */
+  height: 3.0rem; /* Tamaño del icono */
+}
+
+.cvu-details {
+  margin-left: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+}
+
+/* Contenedor del texto desplegable */
+.cvu-dropdown {
+  display: none; 
+  background-color: #fff;
+  border: 0.0625rem solid #ddd;
+  border-radius: 0.5rem;
+  padding: 0.5rem; 
+  margin-top: 0.5rem; 
+  font-size: 1rem; 
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  width: max-content; 
+  position: absolute; 
+  text-align: left;
+  z-index: 10; 
+}
+
+/* Mostrar el desplegable */
+.cvu-dropdown.show {
+  display: block;
+}
+
+
+
+.hidden {
+  display: none;
+}
+
 
 .buttons:hover {
   background-color: #a982c2; /* Violeta más oscuro al hacer hover */
@@ -64,37 +123,13 @@ body {
 /* Transactions Section */
 #transactions {
   background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: 300px;
+  border-radius: 0.625rem; /* 10px */
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); /* 0 4px 8px */
+  padding: 1.25rem; /* 20px */
+  width: 30rem; /* 300px */
 }
 
 #transactions h3 {
-  margin-bottom: 15px;
+  margin-bottom: 0.9375rem; /* 15px */
   color: #333;
-}
-
-#transactions ul {
-  list-style-type: none;
-}
-
-#transactions li {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 0;
-  border-bottom: 1px solid #ddd;
-  font-size: 0.9em;
-}
-
-#transactions li:last-child {
-  border-bottom: none;
-}
-
-#transactions span.positive {
-  color: green;
-}
-
-#transactions span.negative {
-  color: red;
 }
