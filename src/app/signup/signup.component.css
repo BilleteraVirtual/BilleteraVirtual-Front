@@ -1,13 +1,10 @@
 /* Fondo animado con gradiente */
 body {
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   overflow: auto;
   background: linear-gradient(315deg, rgba(60, 49, 119, 1) 20%, rgba(115, 64, 142, 1) 38%, rgba(170, 79, 165, 1) 68%, rgb(225, 95, 188, 1) 90%);
   animation: gradient 15s ease infinite;
-  background-size: 400% 400%;
-  background-attachment: fixed;
-  height: 92.7vh; /* Ajuste la altura para que no aparezca el scrolbar, le reste el valor de altura del nav (7,3vh)  */
+  height: 32.2rem;
 }
 
 @keyframes gradient {
@@ -99,13 +96,13 @@ form {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 800px; /* Aumentamos el ancho para permitir más espacio para las columnas */
-  margin: 100px auto;
+  margin: 2.5rem auto;
   font-family: 'Arial', sans-serif;
   z-index: 10; /* Asegura que el formulario esté por encima de las ondas */
   position: relative; /* Necesario para que z-index funcione */
   display: grid;
   grid-template-columns: 1fr 1fr; /* Crea dos columnas de igual tamaño */
-  gap: 20px; /* Espacio entre las columnas */
+  gap: 0.5rem; /* Espacio entre las columnas */
 }
 
 /* Dividir los grupos de campos en columnas */
@@ -118,18 +115,20 @@ div[formGroupName="user"] {
   background-color: #f8f0fc; /* Fondo claro para secciones */
 }
 
+
+#userType{
+  margin-top: 1rem;
+}
 /* Estilos para la columna izquierda (campos hasta tipo de usuario) */
 form .left-column {
   display: flex;
   flex-direction: column;
-  gap: 15px;
 }
 
 /* Estilos para la columna derecha (campos después de tipo de usuario) */
 form .right-column {
   display: flex;
   flex-direction: column;
-  gap: 15px;
 }
 
 /* Secciones específicas dentro de las columnas */
@@ -137,7 +136,6 @@ form .left-column label,
 form .right-column label {
   color: #3c3177; /* Texto oscuro */
   font-weight: bold;
-  display: block;
   margin-bottom: 5px;
 }
 
@@ -145,7 +143,7 @@ form .right-column label {
 form input,
 form select {
   width: 100%;
-  padding: 10px;
+  padding: 0.3rem;
   margin-bottom: 15px;
   border: 1px solid #73408e; /* Borde de los inputs */
   border-radius: 4px;
@@ -187,7 +185,7 @@ form .register-btn {
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-top: 8%;
+  margin-top: 2rem;
 }
 
 form .register-btn:hover {
