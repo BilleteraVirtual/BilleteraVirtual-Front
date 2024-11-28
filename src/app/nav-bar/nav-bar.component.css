@@ -7,6 +7,15 @@
   color: white;
 }
 
+.navbar-logo {
+  display: flex;
+  align-items: center;  
+}
+.navbar-logo span{
+  font-size: 20px;
+  margin-left: 10px;
+}
+
 .navbar-logo img {
   height: 40px;
 }

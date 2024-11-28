@@ -30,7 +30,7 @@ body {
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); /* 0 4px 8px */
   padding: 2rem; /* Sin cambio */
   width: 30rem; /* 30rem */
-  height: 15rem; /* 15rem */
+  height: 16rem; /* 15rem */
   text-align: center;
 }
 
@@ -95,7 +95,7 @@ body {
   border: 0.0625rem solid #ddd;
   border-radius: 0.5rem;
   padding: 0.5rem; 
-  margin-top: 0.5rem; 
+  margin-top: 4rem; 
   font-size: 1rem; 
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
   width: max-content; 
@@ -132,4 +132,20 @@ body {
 #transactions h3 {
   margin-bottom: 0.9375rem; /* 15px */
   color: #333;
+}
+
+#botones {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.25rem; /* 20px */
+}
+
+.leyendaBotones {
+  font-size: 0.875rem; /* 14px */
+  color: #747474;
+}
+
+.verMasButton{
+  font-weight: bold;
+  color: #73408e;
 }
