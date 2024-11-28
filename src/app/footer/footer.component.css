@@ -1,18 +1,11 @@
+  #infoFooter p{
+  margin :0;
+  }
 
-footer {
+  #infoFooter{
     background-color: #fcfcfc;
     color: #333333;
     text-align: center;
-    position: absolute;
-    width: 100%;
     bottom: 0;
     padding: 1em 0em 1em 0em;
-  }
-  
-  
-  #infoFooter p{
-  
-  margin :0;
-  
-  
   }

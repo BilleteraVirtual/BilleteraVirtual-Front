@@ -10,7 +10,7 @@ body {
   flex-direction: column; /* Coloca los hijos (containerInfo y cuadros) en columna */
   align-items: center; /* Centra horizontalmente */
   justify-content: flex-start; /* Mueve el contenido hacia arriba */
-  padding-top: 4em; /* Ajusta el espacio superior */
+  padding-top: 2em; /* Ajusta el espacio superior */
   
 }
 
@@ -19,7 +19,7 @@ body {
   padding: 2em;
   display: flex;
   flex-direction: column;
-  max-width: 38%;
+  max-width: 50%;
   position: relative;
   background-color:#f3c8e4d3;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Ajuste al estilo del box-shadow */
@@ -40,10 +40,10 @@ body {
   -webkit-background-clip: text,padding-box;
   background-clip: text,padding-box;
   transition: 0.5s;
-  font-size: 9rem;
+  font-size: 8rem;
   text-align: center;
   cursor:default;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 #nombre:hover {
@@ -64,7 +64,7 @@ body {
 }
 /* Estilo para el párrafo y lista */
 p {
-  font-size: 1.1rem;
+  font-size: 0.9em;
   line-height: 1.6;
   color: #000000a8;
   margin: 1rem 0;
@@ -110,8 +110,7 @@ li {
   justify-content: space-between; /* Espacio uniforme entre los cuadros */
   align-items: center; /* Alinea verticalmente */
   gap: 1rem; /* Espaciado entre cuadros */
-  margin-top: 5rem;
-  margin-bottom: 5rem; /* Incrementa el espacio entre #containerInfo y los cuadros */
+  margin: 2em 0 2em 0;/* Incrementa el espacio entre #containerInfo y los cuadros */
   width: 90%; /* Ajusta el ancho máximo del contenedor */
   background-color: #3333339d; /* Fondo transparente */
   padding: 1em; 
@@ -121,7 +120,7 @@ li {
 
 
 .cuadros {
-  height: 4em;
+  height: 2.5em;
   background-color: #73408ed5;
   border-radius: 3px;
   display: flex;
@@ -130,8 +129,9 @@ li {
   flex: 1; /* Los cuadros se expanden proporcionalmente */
   max-width: 20%; /* Limita el tamaño máximo de cada cuadro */
   text-align: center; /* Asegura el texto centrado */
-  font-size: large;
+  font-size: 0.9em;
   color: #ffffffa8;
+  padding: 1em;
 }
 
 .cuadros:hover {
