@@ -4,7 +4,7 @@ body {
   overflow: auto;
   background: linear-gradient(315deg, rgba(60, 49, 119, 1) 20%, rgba(115, 64, 142, 1) 38%, rgba(170, 79, 165, 1) 68%, rgb(225, 95, 188, 1) 90%);
   animation: gradient 15s ease infinite;
-  height: 32.2rem;
+  height: 79.5vh;
 }
 
 @keyframes gradient {
