@@ -16,6 +16,7 @@ export class NavBarComponent implements OnInit {
   isLandingPage: boolean = false;
   isLoginPage: boolean = false;
   isRegisterPage: boolean = false;
+  isHomePage: boolean = false;
   userName: string = 'Usuario';
 
   entityDetails: any;
@@ -26,8 +27,11 @@ export class NavBarComponent implements OnInit {
         this.isLandingPage = event.url === '/landingpage' || event.url === '/';
         this.isLoginPage = event.url === '/login';
         this.isRegisterPage = event.url === '/signup';
+        this.isHomePage = event.url === '/home';
+        if (this.isHomePage) {
+          this.loadEntityDetails();
       }
-    });
+    }});
     
   } 
 
@@ -71,4 +75,12 @@ export class NavBarComponent implements OnInit {
   signup(): void {
     this.router.navigate(['/signup']);
   }
+
+  backHome(): void {
+    if (this.isLoginPage || this.isRegisterPage) {
+    this.router.navigate(['/landingpage']);
+  }else{
+    this.router.navigate(['/home']);
+  }
+}
 }

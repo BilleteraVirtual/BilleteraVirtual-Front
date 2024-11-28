@@ -7,7 +7,7 @@ body {
   animation: gradient 15s ease infinite;
   background-size: 400% 400%;
   background-attachment: fixed;
-  height: 100%;
+  height: 92.7vh; /* Ajuste la altura para que no aparezca el scrolbar, le reste el valor de altura del nav (7,3vh)  */
 }
 
 @keyframes gradient {
