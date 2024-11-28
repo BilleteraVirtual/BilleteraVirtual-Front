@@ -6,7 +6,7 @@ body {
   animation: gradient 15s ease infinite;
   background-size: 400% 400%;
   background-attachment: fixed;
-  height: 92.7vh; /* Ajuste la altura para que no aparezca el scrolbar, le reste el valor de altura del nav (7,3vh)  */
+  height: 35rem; /* Ajuste la altura para que no aparezca el scrolbar, le reste el valor de altura del nav (7,3vh)  */
 }
 
 
@@ -78,12 +78,10 @@ body {
   border: 2px solid #73408e;
   border-radius: 8px;
   padding: 20px;
-  width: 100%;
-  max-width: 400px;
-  margin: 170px auto; /* Aumenta el margen superior para separarlo más del fondo */
+  width: 30%;
+  margin: 3rem auto; /* Aumenta el margen superior para separarlo más del fondo */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
-  position: relative;
   z-index: 11; /* Asegura que el formulario esté por encima de las ondas */
 }
 
