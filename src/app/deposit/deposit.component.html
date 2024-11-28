@@ -1,20 +1,31 @@
 <div class="deposit-container">
-    <h1>Realizar Depósito</h1>
-  
-    <form (ngSubmit)="submitDeposit()">
-      <div class="form-group">
-        <label for="amount">Monto</label>
-        <input
-          type="number"
-          id="amount"
-          name="amount"
-          [(ngModel)]="amount"
-          required
-          min="1"
-          placeholder="Ingrese el monto a depositar"
-        />
-      </div>
-      <button type="submit" class="submit-button">Confirmar Depósito</button>
-    </form>
+  <h1>Realizar Depósito</h1>
+
+  <form (ngSubmit)="submitDeposit()">
+    <div class="form-group">
+      <label for="amount">Monto</label>
+      <input
+        type="number"
+        id="amount"
+        name="amount"
+        [(ngModel)]="amount"
+        required
+        min="1"
+        placeholder="Ingrese el monto a depositar"
+      />
+    </div>
+    <button type="submit" class="submit-button">Confirmar Depósito</button>
+  </form>
+</div>
+
+<!-- Popup de procesamiento -->
+<div *ngIf="isProcessing" class="popup-overlay">
+  <div class="popup">
+    <div *ngIf="!isComplete" class="processing-circle"></div>
+    <div *ngIf="isComplete" class="processing-complete">
+      <i class="fas fa-check"></i>
+    </div>
+    <p *ngIf="!isComplete">Procesando depósito...</p>
+    <p *ngIf="isComplete">¡Depósito completado con éxito!</p>
   </div>
-  
+</div>

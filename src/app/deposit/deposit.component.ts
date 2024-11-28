@@ -13,6 +13,8 @@ import { EntityService } from '../Entity.service';
 })
 export class DepositComponent {
   amount: number = 0;
+  isProcessing: boolean = false;
+  isComplete: boolean = false;
 
   constructor(private entityService: EntityService, private router: Router) {}
 
@@ -22,12 +24,19 @@ export class DepositComponent {
       return;
     }
 
+    this.isProcessing = true; // Muestra el popup
     this.entityService.depositMoney(this.amount).subscribe({
       next: () => {
-        alert('Depósito realizado con éxito.');
-        this.router.navigate(['/home']); // Redirige a la página principal o donde desees
+        setTimeout(() => {
+          this.isComplete = true; // Cambia a estado completado
+          setTimeout(() => {
+            this.isProcessing = false; // Oculta el popup
+            this.router.navigate(['/home']); // Redirige a home
+          }, 2000); // Espera 2 segundos antes de redirigir
+        }, 3000); // Simula 3 segundos de procesamiento
       },
       error: (err) => {
+        this.isProcessing = false; // Oculta el popup en caso de error
         console.error('Error al realizar el depósito:', err);
         alert('Hubo un problema al realizar el depósito. Por favor, inténtalo de nuevo.');
       }
