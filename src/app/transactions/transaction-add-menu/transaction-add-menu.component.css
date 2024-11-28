@@ -1,22 +1,72 @@
+/* Contenedor de búsqueda */
 .search-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  
-  .search-container input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .search-result {
-    margin-top: 10px;
-  }
-  
-  .error {
-    color: red;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 0.625rem; /* Bordes redondeados */
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); /* Sombra suave */
+  padding: 1.25rem; /* Espaciado interno */
+  width: 100%;
+  max-width: 500px; /* Limita el ancho máximo */
+  margin: 2rem auto; /* Centrado en la página */
+}
+
+/* Estilo del input */
+.search-container input[type="text"] {
+  width: 100%;
+  padding: 0.75rem; /* Espaciado interno */
+  font-size: 1rem;
+  border: 1px solid #ddd; /* Borde gris suave */
+  border-radius: 0.5rem; /* Bordes redondeados */
+  margin-bottom: 1rem; /* Espacio debajo del input */
+  transition: border-color 0.3s ease;
+}
+
+.search-container input[type="text"]:focus {
+  border-color: #73408e; /* Violeta al enfocar el input */
+  outline: none;
+}
+
+/* Contenedor de resultados de búsqueda */
+.search-result {
+  width: 100%;
+  text-align: left;
+}
+
+/* Estilo de los resultados */
+.search-result p {
+  font-size: 1rem;
+  color: #333;
+  margin: 0.5rem 0; /* Espaciado entre las líneas de resultados */
+}
+
+.search-result strong {
+  color: #73408e; /* Color violeta para el texto destacado */
+}
+
+/* Estilo del botón de agregar transacción */
+.add-transaction-button {
+  background-color: #b730ff; /* Violeta de fondo */
+  color: white;
+  border: none;
+  border-radius: 0.5rem; /* Bordes redondeados */
+  padding: 0.75rem 1.5rem; /* Espaciado interno */
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem; /* Espacio superior */
+  width: 100%; /* Botón ocupa todo el ancho disponible */
+  text-align: center;
+}
+
+.add-transaction-button:hover {
+  background-color: #8f20cf; /* Violeta más oscuro al pasar el ratón */
+}
+
+/* Estilo del mensaje de error */
+.error {
+  color: #ff0000; /* Color rojo para los mensajes de error */
+  font-size: 0.875rem;
+  margin-top: 1rem;
+}
