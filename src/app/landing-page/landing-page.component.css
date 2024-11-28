@@ -11,7 +11,7 @@ body {
   align-items: center; /* Centra horizontalmente */
   justify-content: flex-start; /* Mueve el contenido hacia arriba */
   padding-top: 2em; /* Ajusta el espacio superior */
-  
+  overflow-y: visible !important;
 }
 
 
