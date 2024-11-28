@@ -1,3 +1,8 @@
+body{
+  height: 72vh;
+}
+
+
 /* Estilos generales del contenedor del formulario */
 .deposit-container {
   background-color: #fcfcfc;
