@@ -1,3 +1,8 @@
+body{
+  height: 72vh;
+}
+
+
 .income {
     color: green;
     font-weight: bold;

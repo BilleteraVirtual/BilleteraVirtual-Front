@@ -13,7 +13,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  min-height: 100vh;
+  min-height: 79.5vh;
   padding: 1.25rem; /* 20px */
 }
 

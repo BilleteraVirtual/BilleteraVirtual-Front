@@ -1,3 +1,7 @@
+body{
+  height: 74.5vh;
+}
+
 /* Contenedor de búsqueda */
 .search-container {
   display: flex;

@@ -1,3 +1,8 @@
+body{
+  height: 79.5vh;
+}
+
+
 .reserve-menu {
   padding: 2rem; /* Espaciado dentro del contenedor */
   border-radius: 1rem; /* Bordes redondeados */

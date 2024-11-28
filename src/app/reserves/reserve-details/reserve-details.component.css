@@ -1,3 +1,7 @@
+body{
+  height: 73vh;
+}
+
 /* Estilos generales para la página de detalles de la reserva */
 .reserve-detail {
   margin-top: 1rem;
