@@ -91,7 +91,7 @@ export class HomeComponent implements OnInit {
   loadTransactions(): void {
     if (!this.entityCVU) return; // Asegurarse de tener el CVU antes de hacer la solicitud.
     this.transactionService.getTransactionsByCVU(this.entityCVU, 1).subscribe({
-      next: (res) => (this.transactions = res),
+      next: (res) => (this.transactions = res.slice(0,5)),
       error: (err) => console.error('Error al cargar las transacciones:', err),
     });
   }

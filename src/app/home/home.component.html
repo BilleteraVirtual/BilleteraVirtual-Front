@@ -6,16 +6,6 @@
   <title>Home</title>
 </head>
 <body>
-  <div *ngIf="entityDetails; else loading">
-
-    <div *ngIf="entityDetails.businessName && entityDetails.category">
-      <p>Empresa: {{ entityDetails.businessName }}</p>
-      <p>Categoría: {{ entityDetails.category }}</p>
-    </div>
-  </div>
-  <ng-template #loading>
-    <p>Cargando detalles...</p>
-  </ng-template>
 
   <div id="main-container">
     <!-- Money Management Section -->
@@ -24,14 +14,25 @@
       <p id="balance">$ {{ entity.balance }}</p>
 
       <hr>
-      <button id="cvu-button" class="buttons" (click)="toggleDropdown()"><img src="../../assets/CVU.png" alt=""></button>
-      <div id="cvu-dropdown" class="cvu-dropdown">
-        <p>CVU: {{ entityCVU }}</p> <!-- Muestra el CVU de la variable de TypeScript -->
-        <p><strong>Alias:</strong> {{ entity?.alias }}</p> <!-- Muestra el alias de la entidad -->
-      </div>
-      <button class="buttons" routerLink="/deposit"> <img src="../../assets/Ingresar.png" alt=""></button>
-      <button class="buttons" routerLink="/transaction/add"><img src="../../assets/Transferir.png" alt=""></button>
-
+      <div id="botones">
+        <div>
+          <button id="cvu-button" class="buttons" (click)="toggleDropdown()"><img src="../../assets/CVU.png" alt=""></button>
+          <div id="cvu-dropdown" class="cvu-dropdown">
+            <p>CVU: {{ entityCVU }}</p> <!-- Muestra el CVU de la variable de TypeScript -->
+            <p><strong>Alias:</strong> {{ entity?.alias }}</p> <!-- Muestra el alias de la entidad -->
+          </div>
+          <p class="leyendaBotones">Tu CVU</p>
+        </div>
+        <div>
+          <button class="buttons" routerLink="/deposit"> <img src="../../assets/Ingresar.png" alt=""></button>
+          <p class="leyendaBotones">Ingresar</p>
+        </div>
+        <div>
+          <button class="buttons" routerLink="/transaction/addmenu"><img src="../../assets/Transferir.png" alt=""></button>  
+          <p class="leyendaBotones">Transferir</p>
+        </div>
+        </div>
+      
     </div>
 
     <!-- Transactions List -->
@@ -46,6 +47,7 @@
           </app-transaction>
         </div>
       </ul>
+      <p class="verMasButton" routerLink="/transactions">Ver más</p>  
     </div>
   </div>
 </body>
