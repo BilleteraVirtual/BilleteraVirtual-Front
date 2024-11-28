@@ -1,6 +1,6 @@
 <nav class="navbar">
   <div class="navbar-logo">
-    <a [routerLink]="['/home']"><img src="../../assets/logoNexo.png" alt="Logo"></a>
+    <a (click)="backHome()"><img src="../../assets/logoNexo.png" alt="Logo"></a>
   </div>
   <div class="navbar-menu">
       <button class="login-button" *ngIf="isRegisterPage || isLandingPage"  (click)="login()">Iniciar Sesión</button>

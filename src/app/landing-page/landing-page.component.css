@@ -5,14 +5,13 @@ body {
 
   background-image: linear-gradient(rgba(0, 0, 0, 0.438), rgba(0, 0, 0, 0)), /* Capa oscura */url('../../assets/ruta-de-tu-imagen.png'); /* Ruta de tu imagen */
   background-size: cover;  /* Hace que la imagen cubra toda la pantalla */
-  background-position: center;  /* Centra la imagen */
-
+  
   display: flex; /* Activa Flexbox */
   flex-direction: column; /* Coloca los hijos (containerInfo y cuadros) en columna */
   align-items: center; /* Centra horizontalmente */
   justify-content: flex-start; /* Mueve el contenido hacia arriba */
-  padding-top: 5%; /* Añade un pequeño espacio desde la parte superior */
-  height: 100%; /* Ocupa toda la pantalla */
+  padding-top: 4em; /* Ajusta el espacio superior */
+  
 }
 
 
@@ -21,11 +20,10 @@ body {
   display: flex;
   flex-direction: column;
   max-width: 38%;
-  max-height: 50%;
   position: relative;
-  background-color:#f3c8e46e;
+  background-color:#f3c8e4d3;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Ajuste al estilo del box-shadow */
-  border-radius: 30px;
+  border-radius: 5px;
 }
 
 
@@ -68,7 +66,7 @@ body {
 p {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #ffffff;
+  color: #000000a8;
   margin: 1rem 0;
   text-align: center;
 }
@@ -85,8 +83,6 @@ p {
   -webkit-background-clip: text; /* Aplica el gradiente solo al texto */
   background-clip: text;
   color: transparent; /* Hace que solo se vea el gradiente */
-
-
 }
 
 
@@ -114,17 +110,20 @@ li {
   justify-content: space-between; /* Espacio uniforme entre los cuadros */
   align-items: center; /* Alinea verticalmente */
   gap: 1rem; /* Espaciado entre cuadros */
-  margin-top: 5rem; /* Incrementa el espacio entre #containerInfo y los cuadros */
+  margin-top: 5rem;
+  margin-bottom: 5rem; /* Incrementa el espacio entre #containerInfo y los cuadros */
   width: 90%; /* Ajusta el ancho máximo del contenedor */
+  background-color: #3333339d; /* Fondo transparente */
+  padding: 1em; 
+  border-radius: 5px;
 }
 
 
 
 .cuadros {
-  padding: 1em;
-  height: 6em;
-  background-color: #c9c9c9ee;
-  border-radius: 15px;
+  height: 4em;
+  background-color: #73408ed5;
+  border-radius: 3px;
   display: flex;
   align-items: center; /* Centra texto verticalmente */
   justify-content: center; /* Centra texto horizontalmente */
@@ -132,17 +131,11 @@ li {
   max-width: 20%; /* Limita el tamaño máximo de cada cuadro */
   text-align: center; /* Asegura el texto centrado */
   font-size: large;
+  color: #ffffffa8;
 }
 
-#cuadro1 {
-  color: #7e39a3;
+.cuadros:hover {
+  background-color: #73408e;
+  color: #ffffff;
 }
-#cuadro2 {
-  color: #7e39a3;
-}
-#cuadro3 {
-  color: #7e39a3;
-}
-#cuadro4 {
-  color: #7e39a3;
-}
+
